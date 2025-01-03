@@ -24,7 +24,7 @@ const Navbar = () => {
       {navLinks.map((link) => (
         <li
           key={link.id}
-          className={`${active === link.title ? "text-white" : isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[20px] font-medium cursor-pointer`}
+          className={`${active === link.title ? "text-white" : isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[10px] font-medium cursor-pointer`}
           onClick={() => {
             setActive(link.title);
             if (isSecondary) {
@@ -35,7 +35,7 @@ const Navbar = () => {
           <a href={`#${link.id}`}>{link.title}</a>
         </li>
       ))}
-      <li className={`${isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[20px] font-medium cursor-pointer`}>
+      <li className={`${isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[10px] font-medium cursor-pointer`}>
         <button onClick={toggleResume}>Resume</button>
       </li>
     </ul>
@@ -52,8 +52,8 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={"https://your-cdn.com/path-to-logo.svg"} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-white text-[20px] font-bold cursor-pointer flex">
+          <img src={"https://img.icons8.com/?size=100&id=23280&format=png&color=000000"} alt="logo" className="w-5 h-5 object-contain" />
+          <p className="text-white text-[10px] font-bold cursor-pointer flex">
             KETAN&nbsp;
             <span className="sm:block hidden">SAINI</span>
           </p>
@@ -63,7 +63,7 @@ const Navbar = () => {
           <img
             src={toggle ? "https://your-cdn.com/path-to-close-icon.svg" : "https://your-cdn.com/path-to-menu-icon.svg"}
             alt="menu"
-            className="w-[28px] h-[18px] object-contain cursor-pointer"
+            className="w-[14px] h-[9px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
           <div className={`p-4 black-gradient absolute top-14 right-0 mx-2 my-2 min-w-[120px] z-10 rounded-xl foggy-glass ${toggle ? "flex" : "hidden"}`}>
