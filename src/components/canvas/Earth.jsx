@@ -15,7 +15,7 @@ const EarthModel = () => {
   );
 
   return (
-    <primitive object={scene} scale={1.0} position-y={0} rotation-y={0} />
+    <primitive object={scene} scale={1.5} position-y={0} rotation-y={0} />
   );
 };
 
