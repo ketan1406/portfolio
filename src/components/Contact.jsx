@@ -98,7 +98,7 @@ const Contact = () => {
   return (
     <div className="xl:mt-12 flex xl:flex-row gap-2">
       {/* Left side: Contact Form */}
-      <div className="flex-[0.75] bg-black-100 p-2 sm:p-3 rounded-2xl min-w-[250px] min-h-[270px] flex-shrink-0">
+      <div className="flex-[0.75] bg-black-100 p-2 sm:p-3 rounded-2xl min-w-[250px] min-h-[270px] flex-shrink-0 relative z-0">
         {/* Smaller subtext/headings */}
         <p className={`${styles.sectionSubText}`}>
           Get in touch
@@ -156,7 +156,7 @@ const Contact = () => {
       </div>
 
       {/* Right side: 3D Computer Model */}
-      <div className="xl:flex-1 xl:h-auto">
+      <div className="xl:flex-1 xl:h-auto relative z-10">
         <ComputersCanvas />
       </div>
     </div>
