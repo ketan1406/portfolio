@@ -1,12 +1,18 @@
 import React from "react";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+import { EarthCanvas, StarsCanvas } from "./canvas";
 import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
-      <div className={`absolute inset-0 top-[60px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
+      {/* This StarsCanvas is placed behind everything as a background */}
+      <StarsCanvas />
+
+      <div
+        className={`absolute inset-0 top-[40px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+      >
+        {/* Left side: The "Hi, I'm Ketan..." and typewriter */}
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-2.5 h-2.5 rounded-full bg-[#915EFF]" />
           <div className="w-0.5 sm:h-60 h-30 violet-gradient" />
@@ -17,7 +23,7 @@ const Hero = () => {
             Hi, I'm <span className="text-[#915EFF]">Ketan</span>
           </h1>
           <div className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I do
+            I do{" "}
             <Typewriter
               options={{
                 strings: ["Web Development", "AI & ML"],
@@ -30,10 +36,12 @@ const Hero = () => {
             />
           </div>
         </div>
+
+        {/* Right side: The Earth model */}
+        <div className="flex-1 h-full">
+          <EarthCanvas />
+        </div>
       </div>
-
-      <ComputersCanvas />
-
     </section>
   );
 };
