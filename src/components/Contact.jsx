@@ -7,9 +7,9 @@ import { SectionWrapper } from "../hoc";
 import "../index.css";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
-  <label className="flex flex-col mb-4">
+  <label className="flex flex-col mb-2">
     {/* Force small label text */}
-    <span className="text-white text-[10px] font-medium mb-2 leading-tight">
+    <span className="text-white text-[8px] font-medium mb-2 leading-tight">
       {label}
     </span>
     <input
@@ -25,8 +25,8 @@ const InputField = ({ label, value, onChange, placeholder, name, type }) => (
         outline-none 
         border-none 
         text-white 
-        text-[10px]
-        placeholder:text-[10px] placeholder:text-secondary
+        text-[8px]
+        placeholder:text-[8px] placeholder:text-secondary
         font-medium
       "
     />
@@ -98,7 +98,7 @@ const Contact = () => {
   return (
     <div className="xl:mt-12 flex xl:flex-row gap-2">
       {/* Left side: Contact Form */}
-      <div className="flex-[0.75] bg-black-100 p-4 sm:p-8 rounded-2xl">
+      <div className="flex-[0.75] bg-black-100 p-2 sm:p-3 rounded-2xl min-w-[250px] min-h-[270px] flex-shrink-0">
         {/* Smaller subtext/headings */}
         <p className={`${styles.sectionSubText}`}>
           Get in touch
