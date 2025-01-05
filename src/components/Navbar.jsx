@@ -9,7 +9,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   const toggleResume = () => {
-    const resumeUrl = "https://drive.google.com/file/d/your_resume_id/view?usp=sharing";
+    const resumeUrl = "https://drive.google.com/file/d/12OM_be0GFeTR-lkdYgqPUnqBX1SfJMF-/view?usp=sharing";
     window.open(resumeUrl);
   };
 
@@ -42,7 +42,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`${styles.paddingX} w-full flex items-center py-3 fixed top-0 z-20 bg-primary`}>
+    <nav className={`${styles.paddingX} w-full flex items-center py-2 fixed top-0 z-20 bg-primary`}>
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           to="/"
