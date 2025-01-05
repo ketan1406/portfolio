@@ -32,6 +32,7 @@ const EarthCanvas = () => {
         autoRotate
         autoRotateSpeed={3.5}
         enableZoom={false}
+        enablePan={false}
         minAzimuthAngle={-Infinity}
         maxAzimuthAngle={Infinity}
         maxPolarAngle={2 * Math.PI}
