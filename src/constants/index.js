@@ -25,7 +25,7 @@ export const projects = [
   {
     name: "Stock Analysis Agent",
     description:
-      "AI tool for financial data, stock insights, and news, using Python, Streamlit, YFinance, and DuckDuckGo APIs.",
+      "AI tool for financial data, stock insights, and news, using Python, Streamlit and Phi-Data APIs.",
     tags: [
       { name: "Python", color: "blue-text-gradient" },
       { name: "Streamlit", color: "green-text-gradient" },
@@ -37,7 +37,20 @@ export const projects = [
     source_code_link: "https://github.com/ketan1406/financial-agent",
   },
   {
-    name: "Product Ingredient Analyzer",
+    name: "Dwindle - DigiLibrary",
+    description:
+      "A digital library platform for managing e-books, built with Vue.js, Supabase, and Tailwind CSS.",
+    tags: [
+      { name: "Vue.js", color: "blue-text-gradient" },
+      { name: "Supabase", color: "green-text-gradient" },
+      { name: "Tailwind CSS", color: "pink-text-gradient" },
+      { name: "JavaScript", color: "yellow-text-gradient" },
+    ],
+    image: "./projects/dwindle.png",
+    source_code_link: "https://github.com/ketan1406/dwindle-frontend",
+  },
+  {
+    name: "Ingredient Analyzer",
     description:
       "AI-powered tool to analyze product ingredients, provide health insights, and suggest healthier alternatives.",
     tags: [
