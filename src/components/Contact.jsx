@@ -8,7 +8,6 @@ import "../index.css";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
   <label className="flex flex-col mb-2">
-    {/* Force small label text */}
     <span className="text-white text-[8px] font-medium mb-2 leading-tight">
       {label}
     </span>
@@ -96,16 +95,26 @@ const Contact = () => {
   };
 
   return (
-    <div className="xl:mt-12 flex xl:flex-row gap-2">
-      {/* Left side: Contact Form */}
-      <div className="flex-[0.75] bg-black-100 p-2 sm:p-3 rounded-2xl min-w-[250px] min-h-[270px] flex-shrink-0 relative z-0">
-        {/* Smaller subtext/headings */}
-        <p className={`${styles.sectionSubText}`}>
-          Get in touch
-        </p>
-        <h3 className={`${styles.sectionHeadText}`}>
-          Contact Me
-        </h3>
+    <section id="contact" className="relative w-full h-screen mx-auto overflow-visible">
+      {/* 
+        1) Absolutely position your form on the left, 
+           so the model is free-floating in the section.
+      */}
+      <div
+        className="
+          absolute
+          top-[50px]       /* Adjust as needed */
+          left-12           /* Adjust as needed */
+          bg-black-100
+          p-2 sm:p-3
+          rounded-2xl
+          w-[240px]        /* fix the width to keep size consistent */
+          min-h-[270px]
+          z-0             /* form above the model if they overlap */
+        "
+      >
+        <p className={`${styles.sectionSubText}`}>Get in touch</p>
+        <h3 className={`${styles.sectionHeadText}`}>Contact Me</h3>
 
         <form ref={formRef} onSubmit={handleSubmit} className="mt-6 flex flex-col">
           <InputField
@@ -116,9 +125,7 @@ const Contact = () => {
             placeholder="Insert Your name here..."
             type="text"
           />
-          {nameError && (
-            <span className="text-red-500 text-xs">{nameError}</span>
-          )}
+          {nameError && <span className="text-red-500 text-xs">{nameError}</span>}
 
           <InputField
             label="Email Address"
@@ -128,23 +135,30 @@ const Contact = () => {
             placeholder="What's your email address?"
             type="email"
           />
-          {emailError && (
-            <span className="text-red-500 text-xs">{emailError}</span>
-          )}
+          {emailError && <span className="text-red-500 text-xs">{emailError}</span>}
 
           <InputField
             label="Your Message"
             name="message"
             value={form.message}
             onChange={handleChange}
-            placeholder="What you want to say...?"
+            placeholder="What do you want to say...?"
             type="text"
           />
 
-          {/* Smaller button */}
           <button
             type="submit"
-            className="bg-tertiary py-2 px-4 rounded-xl text-white text-xs font-bold w-fit shadow-md shadow-primary"
+            className="
+              bg-tertiary
+              py-2 px-4
+              rounded-xl
+              text-white
+              text-xs
+              font-bold
+              w-fit
+              shadow-md
+              shadow-primary
+            "
           >
             {loading ? "Sending..." : "Send"}
           </button>
@@ -155,13 +169,13 @@ const Contact = () => {
         </form>
       </div>
 
-      {/* Right side: 3D Computer Model */}
-      <div className="xl:flex-1 xl:h-auto relative z-10">
-        <ComputersCanvas />
-      </div>
-    </div>
+      {/* 
+        2) Place ComputersCanvas at top level, 
+           so there's no extra bounding div restricting it.
+      */}
+      <ComputersCanvas />
+    </section>
   );
 };
 
-// Wrap with SectionWrapper if you still want the HOC scroll effect
-export default SectionWrapper(Contact, "contact");
+export default Contact;
