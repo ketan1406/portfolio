@@ -16,9 +16,9 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary p-5 rounded-2xl sm:w-[180px] w-full"
       >
-        <div className="relative w-full h-[230px]">
+        <div className="relative w-full h-[115px]">
           <img
             src={image}
             alt="project_image"
@@ -29,17 +29,17 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://lohitcdn.blob.core.windows.net/portfoliocdn/Etc/github.png"} alt="source code" className="w-1/2 h-1/2 object-contain" />
+              <img src={"https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"} alt="source code" className="w-1/2 h-1/2 object-contain" />
             </div>
           </div>
         </div>
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+          <h3 className="text-white font-bold text-[12px]">{name}</h3>
+          <p className="mt-2 text-secondary text-[8px]">{description}</p>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={tag.name} className={`text-[14px] ${tag.color}`}>
+            <p key={tag.name} className={`text-[6px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}

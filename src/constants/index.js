@@ -23,16 +23,31 @@ export const services = [
 
 export const projects = [
   {
-    name: "WeatherPedia",
+    name: "Stock Analysis Agent",
     description:
-      "Web-based platform that allows users to access weather information for their location by entering it in the search field",
+      "AI tool for financial data, stock insights, and news, using Python, Streamlit, YFinance, and DuckDuckGo APIs.",
     tags: [
-      { name: "Javascript", color: "blue-text-gradient" },
-      { name: "HTML", color: "green-text-gradient" },
-      { name: "bootstrap 5.3.0", color: "pink-text-gradient" },
-      { name: "Weather API by API Ninjas", color: "yellow-text-gradient" },
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "Streamlit", color: "green-text-gradient" },
+      { name: "GroqAI", color: "purple-text-gradient" },
+      { name: "DuckDuckGoSearchAPI", color: "pink-text-gradient" },
+      { name: "YFinanceAPI", color: "yellow-text-gradient" },
     ],
-    image: "",
-    source_code_link: "",
+    image: "./projects/financial-agent.png",
+    source_code_link: "https://github.com/ketan1406/financial-agent",
+  },
+  {
+    name: "Product Ingredient Analyzer",
+    description:
+      "AI-powered tool to analyze product ingredients, provide health insights, and suggest healthier alternatives.",
+    tags: [
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "Streamlit", color: "green-text-gradient" },
+      { name: "Pillow", color: "purple-text-gradient" },
+      { name: "TavilyAPI", color: "pink-text-gradient" },
+      { name: "GeminiAI", color: "yellow-text-gradient" },
+    ],
+    image: "./projects/ingredients-analyzer.png",
+    source_code_link: "https://github.com/ketan1406/ingredients-analyzer",
   },
 ];
