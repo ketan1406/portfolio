@@ -2,8 +2,8 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
-import { SectionWrapper } from "../hoc";
+import { ComputersCanvas, ParticleBackground } from "./canvas";
+
 import "../index.css";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
@@ -96,6 +96,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative w-full h-screen mx-auto overflow-visible">
+      <ParticleBackground />
       {/* 
         1) Absolutely position your form on the left, 
            so the model is free-floating in the section.
