@@ -4,16 +4,16 @@ import "../../index.css"; // Ensure this contains your global styles
 const ParticleBackground = () => {
   const canvasRef = useRef(null);
 
+  // 1) Create your neon color array
   const neonColors = [
     "rgba(58, 134, 255, 0.8)",  // Neon Blue
     "rgba(177, 58, 255, 0.8)",  // Neon Purple
-    "rgba(255, 51, 153, 0.8)",  // Neon Pink
     "rgba(0, 255, 170, 0.8)",   // Neon Green
   ];
 
   useEffect(() => {
-    const NUM_PARTICLES = 1000;
-    const PARTICLE_SIZE = 0.5; // View heights
+    const NUM_PARTICLES = 750;
+    const PARTICLE_SIZE = 0.5;
     const SPEED = 20000; // Milliseconds
     let particles = [];
 
@@ -36,7 +36,8 @@ const ParticleBackground = () => {
       offsetY: normal({ mean: 0, dev: 10 }),
       arc: Math.PI * 2,
       startTime: performance.now() - rand(0, SPEED),
-      colour: `rgba(255, ${normal({ mean: 125, dev: 20 })}, 50, ${rand(0, 1)})`,
+      // 2) Use a random neon color from the array
+      colour: neonColors[Math.floor(Math.random() * neonColors.length)],
     });
 
     const moveParticle = (particle, time, canvas) => {
@@ -98,9 +99,15 @@ const ParticleBackground = () => {
     if (canvasRef.current) {
       startAnimation();
     }
-  }, []);
+  }, [neonColors]); // include if you plan to update neonColors
 
-  return <canvas id="particle-canvas" ref={canvasRef} className="absolute top-0 left-0 w-full h-full"></canvas>;
+  return (
+    <canvas
+      id="particle-canvas"
+      ref={canvasRef}
+      className="absolute top-0 left-0 w-full h-full"
+    />
+  );
 };
 
 export default ParticleBackground;
