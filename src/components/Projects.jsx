@@ -24,7 +24,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
             alt="project_image"
             className="w-full h-full object-cover rounded-2xl"
           />
-          <div className="absolute inset-0 flex justify-end m-2 card-img_hover">
+          <div className="absolute top-0.5 right-0.5 flex justify-end card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
@@ -34,8 +34,8 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
           </div>
         </div>
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[12px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[8px]">{description}</p>
+          <h3 className="text-white font-bold text-[11px]">{name}</h3>
+          <p className="mt-2 text-secondary text-[7px]">{description}</p>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
@@ -63,7 +63,7 @@ const Projects = () => {
           repositories in it.
         </motion.p>
       </div>
-      <div className="mt-20 flex flex-wrap gap-7">
+      <div className="mt-5 flex flex-wrap gap-7">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} {...project} />
         ))}
