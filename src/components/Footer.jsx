@@ -29,7 +29,7 @@ const Footer = () => {
           <img src="https://img.icons8.com/?size=100&id=43625&format=png&color=000000" alt="Instagram" className="w-8 h-8" />
         </a>
         <a
-          href="sainiketan99@gmail.com"
+          href="mailto:sainiketan99@gmail.com"
           className="hover:opacity-80"
         >
           <img src="https://img.icons8.com/?size=100&id=44829&format=png&color=000000" alt="Email" className="w-8 h-8" />
