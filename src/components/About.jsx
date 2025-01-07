@@ -48,7 +48,7 @@ const About = () => {
         className="mt-4 text-secondary text-[15px] max-w-3xl leading-[30px] text-left"
       >
         {/* Your overview text here */}
-        I am a tech enthusiast with expertise in full-stack development, data analysis, and machine learning.<br />A B.Tech graduate, I have further sharpened my skills through IIT Madras diplomas in Programming and Data Science.<br />I am a driven and curious individual passionate about technology and innovation,<br />thriving in environments that challenge and inspire me. I am eager to contribute to forward-thinking companies<br />that align with my enthusiasm for exploring new ideas and creating impactful solutions.
+        I am a tech enthusiast with expertise in full-stack development, data analysis, and machine learning. A B.Tech graduate, I have further sharpened my skills through IIT Madras diplomas in Programming and Data Science. I am a driven and curious individual passionate about technology and innovation, thriving in environments that challenge and inspire me. I am eager to contribute to forward-thinking companies that align with my enthusiasm for exploring new ideas and creating impactful solutions.
       </motion.p>
 
       <div className="mt-20 flex justify-center items-center flex-wrap gap-10">
