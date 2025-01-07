@@ -7,6 +7,7 @@ import {
   About,
   Contact,
   Projects,
+  ParticleBackground
 } from "./components";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <About />
         <Projects />
         <div className="relative z-0">
+          <ParticleBackground />
           <Contact />
         </div>
       </div>

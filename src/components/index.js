@@ -2,6 +2,7 @@ import {
   EarthCanvas,
   ComputersCanvas,
   StarsCanvas,
+  ParticleBackground,
 } from "./canvas";
 
 import Hero from "./Hero";
@@ -19,4 +20,5 @@ export {
   EarthCanvas,
   ComputersCanvas,
   StarsCanvas,
+  ParticleBackground,
 };
