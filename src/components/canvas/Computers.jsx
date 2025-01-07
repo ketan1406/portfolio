@@ -29,7 +29,7 @@ const ComputerModel = ({ isMobile }) => {
       <primitive
         object={scene}
         scale={isMobile ? 0.35 : 0.4}
-        position={isMobile ? [0, -2, -2.2] : [6, 0, -1.5]}
+        position={isMobile ? [0, -2, -2.2] : [0, 0, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -57,6 +57,7 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
+      className="pointer-events-none"
       frameloop="demand"
       shadows
       dpr={[1, 2]}

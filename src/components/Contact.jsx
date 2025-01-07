@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { ComputersCanvas, ParticleBackground } from "./canvas";
-
+import { SectionWrapper } from "../hoc";
 import "../index.css";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
@@ -46,7 +46,7 @@ const Contact = () => {
   };
 
   const validateEmail = (email) => {
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const regex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     return regex.test(email);
   };
 
@@ -95,29 +95,33 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative w-full h-screen mx-auto overflow-visible">
+    <div
+      id="contact"
+      className="w-full h-screen flex overflow-visible"
+      style={{ backgroundColor: "#050816" }} // or use tailwind classes
+    >
       <ParticleBackground />
-      {/* 
-        1) Absolutely position your form on the left, 
-           so the model is free-floating in the section.
-      */}
+      {/* Left side: Contact Form */}
       <div
         className="
-          absolute
-          top-[50px]       /* Adjust as needed */
-          left-12           /* Adjust as needed */
+          w-[240px]
+          min-h-[300px]
           bg-black-100
-          p-2 sm:p-3
+          p-3
           rounded-2xl
-          w-[240px]        /* fix the width to keep size consistent */
-          min-h-[270px]
-          z-5             /* form above the model if they overlap */
+          flex-shrink-0
+          m-6
+          z-10
         "
       >
         <p className={`${styles.sectionSubText}`}>Get in touch</p>
         <h3 className={`${styles.sectionHeadText}`}>Contact Me</h3>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-6 flex flex-col">
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="mt-6 flex flex-col"
+        >
           <InputField
             label="Your Name"
             name="name"
@@ -126,7 +130,7 @@ const Contact = () => {
             placeholder="Insert Your name here..."
             type="text"
           />
-          {nameError && <span className="text-red-500 text-xs">{nameError}</span>}
+          {nameError && <span className="text-red-500 text-[7px]">{nameError}</span>}
 
           <InputField
             label="Email Address"
@@ -136,7 +140,7 @@ const Contact = () => {
             placeholder="What's your email address?"
             type="email"
           />
-          {emailError && <span className="text-red-500 text-xs">{emailError}</span>}
+          {emailError && <span className="text-red-500 text-[7px]">{emailError}</span>}
 
           <InputField
             label="Your Message"
@@ -159,24 +163,24 @@ const Contact = () => {
               w-fit
               shadow-md
               shadow-primary
+              mt-2
             "
           >
             {loading ? "Sending..." : "Send"}
           </button>
 
           {confirmation && (
-            <p className="text-green-500 text-xs">{confirmation}</p>
+            <p className="text-green-500 text-xs mt-2">{confirmation}</p>
           )}
         </form>
       </div>
 
-      {/* 
-        2) Place ComputersCanvas at top level, 
-           so there's no extra bounding div restricting it.
-      */}
-      <ComputersCanvas />
-    </section>
+      {/* Right side: 3D Computer Model */}
+      <div className="flex-1 relative z-0">
+        <ComputersCanvas />
+      </div>
+    </div>
   );
 };
 
-export default Contact;
+export default SectionWrapper(Contact, "contact");
