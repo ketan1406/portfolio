@@ -111,7 +111,7 @@ const Contact = () => {
           rounded-2xl
           w-[240px]        /* fix the width to keep size consistent */
           min-h-[270px]
-          z-0             /* form above the model if they overlap */
+          z-5             /* form above the model if they overlap */
         "
       >
         <p className={`${styles.sectionSubText}`}>Get in touch</p>

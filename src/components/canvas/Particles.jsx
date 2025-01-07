@@ -106,6 +106,7 @@ const ParticleBackground = () => {
       id="particle-canvas"
       ref={canvasRef}
       className="absolute top-0 left-0 w-full h-full"
+      style={{ pointerEvents: "none" }}
     />
   );
 };
