@@ -15,9 +15,12 @@ export const navLinks = [
 ];
 // src/constants/index.js
 export const services = [
-  { title: "Web Development", icon: "https://your-cdn.com/Tech-Stack/WebDev.png" },
-  { title: "AI & ML", icon: "https://your-cdn.com/Tech-Stack/AI_ML.png" },
-  { title: "CyberSecurity", icon: "https://your-cdn.com/Tech-Stack/CyberSecurity.png" },
+  { title: "Python", icon: "https://img.icons8.com/?size=100&id=uLDrtp8o8zTG&format=png&color=000000" },
+  { title: "Java", icon: "https://img.icons8.com/?size=100&id=FRRACRKRsw2s&format=png&color=000000" },
+  { title: "C", icon: "https://img.icons8.com/?size=100&id=shQTXiDQiQVR&format=png&color=000000" },
+  { title: "HTML5", icon: "https://img.icons8.com/?size=100&id=CMVEhOBzk3Zp&format=png&color=000000" },
+  { title: "CSS", icon: "https://img.icons8.com/?size=100&id=5cVdiiKKi0vX&format=png&color=000000" },
+  { title: "Javascript", icon: "https://img.icons8.com/?size=100&id=V6HShIzw21x7&format=png&color=000000" },
   // Add more services as needed
 ];
 
