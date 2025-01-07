@@ -95,85 +95,51 @@ const Contact = () => {
   };
 
   return (
-    <div
-      id="contact"
-      className="w-full h-screen flex overflow-visible"
-      style={{ backgroundColor: "#050816" }} // or use tailwind classes
-    >
-      <ParticleBackground />
-      {/* Left side: Contact Form */}
-      <div
-        className="
-          w-[240px]
-          min-h-[300px]
-          bg-black-100
-          p-3
-          rounded-2xl
-          flex-shrink-0
-          m-6
-          z-10
-        "
-      >
-        <p className={`${styles.sectionSubText}`}>Get in touch</p>
-        <h3 className={`${styles.sectionHeadText}`}>Contact Me</h3>
+    <div div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`
+    }>
+      <motion.div variants={slideIn("left", "tween", 0.2, 1)} className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
+        <p className={styles.sectionSubText}>Get in touch</p>
+        <h3 className={styles.sectionHeadText}>Contact Me</h3>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-6 flex flex-col"
-        >
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
           <InputField
             label="Your Name"
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Insert Your name here..."
+            placeholder="Insert your name"
             type="text"
           />
-          {nameError && <span className="text-red-500 text-[7px]">{nameError}</span>}
+          {nameError && <span className="text-red-500">{nameError}</span>}
 
           <InputField
             label="Email Address"
             name="email"
             value={form.email}
             onChange={handleChange}
-            placeholder="What's your email address?"
+            placeholder="Insert your email"
             type="email"
           />
-          {emailError && <span className="text-red-500 text-[7px]">{emailError}</span>}
+          {emailError && <span className="text-red-500">{emailError}</span>}
 
           <InputField
             label="Your Message"
             name="message"
             value={form.message}
             onChange={handleChange}
-            placeholder="What do you want to say...?"
+            placeholder="What would you like to say?"
             type="text"
           />
 
           <button
             type="submit"
-            className="
-              bg-tertiary
-              py-2 px-4
-              rounded-xl
-              text-white
-              text-xs
-              font-bold
-              w-fit
-              shadow-md
-              shadow-primary
-              mt-2
-            "
+            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
           >
             {loading ? "Sending..." : "Send"}
           </button>
-
-          {confirmation && (
-            <p className="text-green-500 text-[7px] mt-2">{confirmation}</p>
-          )}
+          {confirmation && <p className="text-green-500">{confirmation}</p>}
         </form>
-      </div>
+      </motion.div>
 
       {/* Right side: 3D Computer Model */}
       <div className="flex-1 relative z-0">
