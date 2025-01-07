@@ -39,7 +39,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={tag.name} className={`text-[10px] ${tag.color}`}>
+            <p key={tag.name} className={`text-[12px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
@@ -57,7 +57,7 @@ const Projects = () => {
         <h2 className={`${styles.sectionHeadText}`}>Projects</h2>
       </motion.div>
       <div className="w-full justify-start">
-        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-[8px] max-w-3xl leading-[15px] text-left">
+        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-[16px] max-w-3xl leading-[30px] text-left">
           These projects highlight my expertise and technical skills, showcasing my work through<br />concise descriptions and repository links.
         </motion.p>
       </div>
