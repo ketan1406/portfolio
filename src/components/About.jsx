@@ -8,10 +8,10 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className="xs:w-[100px] w-full">
+  <Tilt className="xs:w-[250px] w-full">
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className="w-full green-pink-gradient p-[0.5px] rounded-[10px] shadow-card"
+      className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
     >
       <div
         options={{
@@ -19,16 +19,16 @@ const ServiceCard = ({ index, title, icon }) => (
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary rounded-[10px] py-5 px-5 min-h-[140px] flex justify-evenly items-center flex-col"
+        className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
         <img
           src={icon}
           alt={title}
-          className="w-8 h-8 object-contain"
+          className="w-16 h-16 object-contain"
           loading="lazy"
         />
 
-        <h3 className="text-white text-[10px] font-bold text-center">
+        <h3 className="text-white text-[20px] font-bold text-center">
           {title}
         </h3>
       </div>
@@ -45,13 +45,13 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[8px] max-w-3xl leading-[15px] text-left"
+        className="mt-4 text-secondary text-[15px] max-w-3xl leading-[30px] text-left"
       >
         {/* Your overview text here */}
         I am a tech enthusiast with expertise in full-stack development, data analysis, and machine learning.<br />A B.Tech graduate, I have further sharpened my skills through IIT Madras diplomas in Programming and Data Science.<br />I am a driven and curious individual passionate about technology and innovation,<br />thriving in environments that challenge and inspire me. I am eager to contribute to forward-thinking companies<br />that align with my enthusiasm for exploring new ideas and creating impactful solutions.
       </motion.p>
 
-      <div className="mt-10 flex justify-center items-center flex-wrap gap-5">
+      <div className="mt-20 flex justify-center items-center flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
