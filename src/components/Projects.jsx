@@ -56,11 +56,9 @@ const Projects = () => {
         <p className={`${styles.sectionSubText} `}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects</h2>
       </motion.div>
-      <div className="w-full flex">
-        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-[10px] max-w-3xl leading-[30px]">
-          Following projects showcase my skills and experience through examples
-          of my work. Each project is briefly described with links to code
-          repositories in it.
+      <div className="w-full justify-start">
+        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-[8px] max-w-3xl leading-[15px] text-left">
+          These projects highlight my expertise and technical skills, showcasing my work through<br />concise descriptions and repository links.
         </motion.p>
       </div>
       <div className="mt-5 flex flex-wrap gap-7">
