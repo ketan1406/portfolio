@@ -6,6 +6,7 @@ import {
   Navbar,
   About,
   Contact,
+  Footer,
   Projects,
   ParticleBackground
 } from "./components";
@@ -24,6 +25,7 @@ const App = () => {
           <ParticleBackground />
           <Contact />
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
