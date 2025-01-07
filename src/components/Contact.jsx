@@ -170,7 +170,7 @@ const Contact = () => {
           </button>
 
           {confirmation && (
-            <p className="text-green-500 text-xs mt-2">{confirmation}</p>
+            <p className="text-green-500 text-[7px] mt-2">{confirmation}</p>
           )}
         </form>
       </div>
