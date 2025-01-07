@@ -95,21 +95,15 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative w-full h-screen mx-auto overflow-visible">
+    <div
+      id="contact"
+      className="w-full h-screen flex overflow-visible"
+      style={{ backgroundColor: "#050816" }} // or use tailwind classes
+    >
       <ParticleBackground />
-      {/* 
-        1) Absolutely position your form on the left, 
-           so the model is free-floating in the section.
-      */}
+      {/* Left side: Contact Form */}
       <div
-        id="contact"
-        className="w-full h-screen flex overflow-visible"
-        style={{ backgroundColor: "#050816" }} // or use tailwind classes
-      >
-        <ParticleBackground />
-        {/* Left side: Contact Form */}
-        <div
-          className="
+        className="
           w-[240px]
           min-h-[300px]
           bg-black-100
@@ -119,47 +113,47 @@ const Contact = () => {
           m-6
           z-10
         "
+      >
+        <p className={`${styles.sectionSubText}`}>Get in touch</p>
+        <h3 className={`${styles.sectionHeadText}`}>Contact Me</h3>
+
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="mt-6 flex flex-col"
         >
-          <p className={`${styles.sectionSubText}`}>Get in touch</p>
-          <h3 className={`${styles.sectionHeadText}`}>Contact Me</h3>
+          <InputField
+            label="Your Name"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Insert Your name here..."
+            type="text"
+          />
+          {nameError && <span className="text-red-500 text-[7px]">{nameError}</span>}
 
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="mt-6 flex flex-col"
-          >
-            <InputField
-              label="Your Name"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Insert Your name here..."
-              type="text"
-            />
-            {nameError && <span className="text-red-500 text-[7px]">{nameError}</span>}
+          <InputField
+            label="Email Address"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="What's your email address?"
+            type="email"
+          />
+          {emailError && <span className="text-red-500 text-[7px]">{emailError}</span>}
 
-            <InputField
-              label="Email Address"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your email address?"
-              type="email"
-            />
-            {emailError && <span className="text-red-500 text-[7px]">{emailError}</span>}
+          <InputField
+            label="Your Message"
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="What do you want to say...?"
+            type="text"
+          />
 
-            <InputField
-              label="Your Message"
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="What do you want to say...?"
-              type="text"
-            />
-
-            <button
-              type="submit"
-              className="
+          <button
+            type="submit"
+            className="
               bg-tertiary
               py-2 px-4
               rounded-xl
@@ -171,22 +165,22 @@ const Contact = () => {
               shadow-primary
               mt-2
             "
-            >
-              {loading ? "Sending..." : "Send"}
-            </button>
+          >
+            {loading ? "Sending..." : "Send"}
+          </button>
 
-            {confirmation && (
-              <p className="text-green-500 text-[7px] mt-2">{confirmation}</p>
-            )}
-          </form>
-        </div>
+          {confirmation && (
+            <p className="text-green-500 text-[7px] mt-2">{confirmation}</p>
+          )}
+        </form>
+      </div>
 
-        {/* 
+      {/* 
         2) Place ComputersCanvas at top level, 
            so there's no extra bounding div restricting it.
       */}
-        <ComputersCanvas />
-    </section>
+      <ComputersCanvas />
+    </div>
   );
 };
 
