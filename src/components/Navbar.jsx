@@ -52,7 +52,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={"https://img.icons8.com/?size=100&id=23280&format=png&color=000000"} alt="logo" className="w-9 h-9 object-contain" />
+          <img src={"../../me.png"} alt="logo" className="w-9 h-9 object-contain rounded-full" />
           <p className="text-white text-[20px] font-bold cursor-pointer flex">
             KETAN&nbsp;
             <span className="sm:block hidden">SAINI</span>
