@@ -7,27 +7,15 @@ import { SectionWrapper } from "../hoc";
 import "../index.css";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
-  <label className="flex flex-col mb-2">
-    <span className="text-white text-[8px] font-medium mb-2 leading-tight">
-      {label}
-    </span>
+  <label className="flex flex-col">
+    <span className="text-white font-medium mb-4">{label}</span>
     <input
       type={type}
       name={name}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="
-        bg-tertiary
-        py-2 px-3
-        rounded-lg
-        outline-none 
-        border-none 
-        text-white 
-        text-[8px]
-        placeholder:text-[8px] placeholder:text-secondary
-        font-medium
-      "
+      className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
     />
   </label>
 );
