@@ -24,25 +24,25 @@ const SetsModal = ({ set, onClose }) => (
               alt={project.name}
               className="w-full h-32 object-cover rounded-md"
             />
-            <div className="absolute top-2 right-2 flex justify-end gap-1 card-img_hover"> {/* Adjusted classes */}
+            <div className="absolute top-0.5 right-0.5 flex justify-end gap-0 card-img_hover"> {/* Adjusted classes */}
               <div
                 onClick={() => window.open(project.source_code_link, "_blank")}
-                className="black-gradient w-6 h-6 rounded-full flex justify-center items-center cursor-pointer" // Adjusted size
+                className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer" // Adjusted size
               >
                 <img
                   src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
                   alt="source code"
-                  className="w-3 h-3 object-contain" // Adjusted size
+                  className="w-6 h-6 object-contain" // Adjusted size
                 />
               </div>
               <div
                 onClick={() => window.open(project.page_link, "_blank")}
-                className="black-gradient w-6 h-6 rounded-full flex justify-center items-center cursor-pointer" // Adjusted size
+                className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer" // Adjusted size
               >
                 <img
                   src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
                   alt="live site"
-                  className="w-3 h-3 object-contain" // Adjusted size
+                  className="w-6 h-6 object-contain" // Adjusted size
                 />
               </div>
             </div>
