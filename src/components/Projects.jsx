@@ -28,15 +28,15 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
           <div className="absolute top-0.5 right-0.5 flex justify-end card-img_hover gap-0">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"} alt="source code" className="w-4 h-4 object-contain" />
+              <img src={"https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"} alt="source code" className="w-6 h-6 object-contain" />
             </div>
             <div
               onClick={() => window.open(page_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"} alt="source code" className="w-4 h-4 object-contain" />
+              <img src={"https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"} alt="source code" className="w-6 h-6 object-contain" />
             </div>
           </div>
         </div>
