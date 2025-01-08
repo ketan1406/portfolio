@@ -29,12 +29,6 @@ const SetsModal = ({ set, onClose }) => (
           </div>
         ))}
       </div>
-      <button
-        onClick={onClose}
-        className="mt-5 text-white bg-red-500 px-4 py-2 rounded-md"
-      >
-        Close
-      </button>
     </div>
   </div>
 );
