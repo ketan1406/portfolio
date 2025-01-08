@@ -25,7 +25,6 @@ const SetsModal = ({ set, onClose }) => (
               className="w-full h-32 object-cover rounded-md"
             />
             <h3 className="text-white font-bold mt-2">{project.name}</h3>
-            <p className="text-secondary text-sm">{project.description}</p>
           </div>
         ))}
       </div>

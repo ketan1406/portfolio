@@ -83,6 +83,7 @@ export const sets = [
         tags: [{ name: "Three.js", color: "text-blue-500" }],
         image: "./projects/sets/threejs/earth.png",
         source_code_link: "https://github.com/ketan1406/threejs-earth",
+        page_link: "https://ketan1406.github.io/threejs-earth/",
       },
       {
         name: "Tetrahedrons",
@@ -90,6 +91,7 @@ export const sets = [
         tags: [{ name: "Three.js", color: "text-blue-500" }],
         image: "./projects/sets/threejs/physics-tetrahedron.png",
         source_code_link: "https://github.com/ketan1406/threejs-phy-animation",
+        page_link: "https://ketan1406.github.io/threejs-phy-animation/",
       },
       {
         name: "Wormhole",
@@ -97,6 +99,7 @@ export const sets = [
         tags: [{ name: "Three.js", color: "text-blue-500" }],
         image: "./projects/sets/threejs/wormhole.png",
         source_code_link: "https://github.com/ketan1406/threejs-wireframe-wormhole",
+        page_link: "https://ketan1406.github.io/threejs-wireframe-wormhole/",
       },
       {
         name: "Rocket Game",
@@ -104,6 +107,7 @@ export const sets = [
         tags: [{ name: "Three.js", color: "text-blue-500" }],
         image: "./projects/sets/threejs/rocket-game.png",
         source_code_link: "https://github.com/ketan1406/threejs-rocket-game",
+        page_link: "https://ketan1406.github.io/threejs-rocket-game/",
       },
     ],
   },
@@ -117,6 +121,7 @@ export const sets = [
         tags: [{ name: "HTML", color: "text-green-500" }],
         image: "./projects/sets/landing/velvora.png",
         source_code_link: "https://github.com/ketan1406/landing-velvora-ui",
+        page_link: "https://ketan1406.github.io/landing-velvora-ui/",
       },
     ],
   },
