@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { sets } from "../constants"; // Import sets
 
 const SetsModal = ({ set, onClose }) => (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
-    <div className="relative bg-primary p-8 rounded-xl max-w-4xl w-full">
+  <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-20">
+    <div className="relative modal-border bg-primary p-8 rounded-xl max-w-4xl w-full">
       {/* Close Icon */}
       <img
         src="https://img.icons8.com/?size=100&id=110627&format=png&color=000000"

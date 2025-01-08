@@ -17,6 +17,13 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
+.modal-border {
+  border: 4px solid;
+  border-image-source: linear-gradient(135deg, #8A2BE2, #1E90FF); /* Gradient border */
+  border-image-slice: 1; /* Ensures gradient fills the entire border */
+  border-radius: 1rem; /* Rounded corners */
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
