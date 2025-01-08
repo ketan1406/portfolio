@@ -3,7 +3,7 @@ import { sets } from "../constants"; // Import sets
 
 const SetsModal = ({ set, onClose }) => (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
-    <div className="relative bg-tertiary p-5 rounded-xl max-w-3xl w-full">
+    <div className="relative bg-primary p-5 rounded-xl max-w-3xl w-full">
       {/* Close Icon */}
       <img
         src="https://img.icons8.com/?size=100&id=110627&format=png&color=000000"
@@ -17,7 +17,7 @@ const SetsModal = ({ set, onClose }) => (
         {set.projects.map((project, index) => (
           <div
             key={index}
-            className="bg-secondary p-2 rounded-lg cursor-pointer relative" // Added 'relative'
+            className="bg-tertiary p-1 rounded-lg cursor-pointer relative" // Added 'relative'
           >
             <img
               src={project.image}
