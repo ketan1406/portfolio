@@ -8,7 +8,7 @@ import SetsSection from "./Sets";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
+const ProjectCard = ({ name, description, tags, image, source_code_link, page_link }) => {
   return (
     <motion.div variants={fadeIn("up", "spring")}>
       <Tilt
@@ -25,18 +25,27 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
             alt="project_image"
             className="w-full h-full object-cover rounded-2xl"
           />
-          <div className="absolute top-0.5 right-0.5 flex justify-end card-img_hover">
+          <div className="absolute top-0.5 right-0.5 flex justify-end items-center gap-2 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-15 h-15 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"} alt="source code" className="w-1/2 h-1/2 object-contain" />
+              <img
+                src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
+                alt="source code"
+                className="w-1/2 h-1/2 object-contain"
+              />
             </div>
+
             <div
               onClick={() => window.open(page_link, "_blank")}
               className="black-gradient w-15 h-15 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"} alt="source code" className="w-1/2 h-1/2 object-contain" />
+              <img
+                src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
+                alt="open page"
+                className="w-1/2 h-1/2 object-contain"
+              />
             </div>
           </div>
         </div>
