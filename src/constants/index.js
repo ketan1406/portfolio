@@ -38,6 +38,7 @@ export const projects = [
     ],
     image: "./projects/financial-agent.png",
     source_code_link: "https://github.com/ketan1406/financial-agent",
+    page_link: "https://ketan1406-financial-agent.streamlit.app/",
   },
   {
     name: "Dwindle - DigiLibrary",
@@ -51,6 +52,7 @@ export const projects = [
     ],
     image: "./projects/dwindle.png",
     source_code_link: "https://github.com/ketan1406/dwindle-frontend",
+    page_link: "https://dwindle.vercel.app/",
   },
   {
     name: "Ingredient Analyzer",
@@ -65,6 +67,7 @@ export const projects = [
     ],
     image: "./projects/ingredients-analyzer.png",
     source_code_link: "https://github.com/ketan1406/ingredients-analyzer",
+    page_link: "https://ketan1406-ingredients-analyzer-app-7gwwcn.streamlit.app/",
   },
 ];
 

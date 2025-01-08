@@ -30,7 +30,13 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-15 h-15 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://img.icons8.com/?size=100&id=52539&format=png&color=000000"} alt="source code" className="w-1/2 h-1/2 object-contain" />
+              <img src={"https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"} alt="source code" className="w-1/2 h-1/2 object-contain" />
+            </div>
+            <div
+              onClick={() => window.open(page_link, "_blank")}
+              className="black-gradient w-15 h-15 rounded-full flex justify-center items-center cursor-pointer"
+            >
+              <img src={"https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"} alt="source code" className="w-1/2 h-1/2 object-contain" />
             </div>
           </div>
         </div>
