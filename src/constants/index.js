@@ -67,3 +67,54 @@ export const projects = [
     source_code_link: "https://github.com/ketan1406/ingredients-analyzer",
   },
 ];
+
+
+export const sets = [
+  {
+    title: "Three.js Animations",
+    description: "Explore my collection of 3D animations built using Three.js.",
+    projects: [
+      {
+        name: "Earth",
+        description: "A simple rotating Earth animation with atmospheric glow.",
+        tags: [{ name: "Three.js", color: "text-blue-500" }],
+        image: "./projects/sets/threejs/earth.png",
+        source_code_link: "https://github.com/ketan1406/threejs-earth",
+      },
+      {
+        name: "Tetrahedrons",
+        description: "An physics-based animation showcasing dynamic tetrahedrons",
+        tags: [{ name: "Three.js", color: "text-blue-500" }],
+        image: "./projects/sets/threejs/physics-tetrahedron.png",
+        source_code_link: "https://github.com/ketan1406/threejs-phy-animation",
+      },
+      {
+        name: "Wormhole",
+        description: "A wireframe wormhole simulation.",
+        tags: [{ name: "Three.js", color: "text-blue-500" }],
+        image: "./projects/sets/threejs/wormhole.png",
+        source_code_link: "https://github.com/ketan1406/threejs-wireframe-wormhole",
+      },
+      {
+        name: "Rocket Game",
+        description: "A 3D rocket simulation game.",
+        tags: [{ name: "Three.js", color: "text-blue-500" }],
+        image: "./projects/sets/threejs/rocket-game.png",
+        source_code_link: "https://github.com/ketan1406/threejs-rocket-game",
+      },
+    ],
+  },
+  {
+    title: "Landing Pages",
+    description: "A collection of responsive landing pages designed for various purposes.",
+    projects: [
+      {
+        name: "Velvora",
+        description: "A clothing brand landing page.",
+        tags: [{ name: "HTML", color: "text-green-500" }],
+        image: "./projects/sets/landing/velvora.png",
+        source_code_link: "https://github.com/ketan1406/landing-velvora-ui",
+      },
+    ],
+  },
+];
