@@ -17,15 +17,36 @@ const SetsModal = ({ set, onClose }) => (
         {set.projects.map((project, index) => (
           <div
             key={index}
-            className="bg-secondary p-4 rounded-lg cursor-pointer"
+            className="bg-secondary p-2 rounded-lg cursor-pointer relative" // Added 'relative'
           >
             <img
               src={project.image}
               alt={project.name}
               className="w-full h-32 object-cover rounded-md"
             />
+            <div className="absolute top-0.5 right-0.5 flex justify-end gap-0 card-img_hover"> {/* Adjusted classes */}
+              <div
+                onClick={() => window.open(project.source_code_link, "_blank")}
+                className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer" // Adjusted size
+              >
+                <img
+                  src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
+                  alt="source code"
+                  className="w-6 h-6 object-contain" // Adjusted size
+                />
+              </div>
+              <div
+                onClick={() => window.open(project.page_link, "_blank")}
+                className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer" // Adjusted size
+              >
+                <img
+                  src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
+                  alt="live site"
+                  className="w-6 h-6 object-contain" // Adjusted size
+                />
+              </div>
+            </div>
             <h3 className="text-white font-bold mt-2">{project.name}</h3>
-            <p className="text-secondary text-sm">{project.description}</p>
           </div>
         ))}
       </div>
