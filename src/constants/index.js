@@ -67,3 +67,40 @@ export const projects = [
     source_code_link: "https://github.com/ketan1406/ingredients-analyzer",
   },
 ];
+
+
+export const sets = [
+  {
+    title: "Three.js Animations",
+    description: "Explore my collection of 3D animations built using Three.js.",
+    projects: [
+      {
+        name: "Rotating Cube",
+        description: "A simple rotating cube animation.",
+        tags: [{ name: "Three.js", color: "text-blue-500" }],
+        image: "/path/to/image",
+        source_code_link: "https://github.com/your-repo",
+      },
+      {
+        name: "Solar System",
+        description: "A 3D solar system simulation.",
+        tags: [{ name: "Three.js", color: "text-blue-500" }],
+        image: "/path/to/image",
+        source_code_link: "https://github.com/your-repo",
+      },
+    ],
+  },
+  {
+    title: "Landing Pages",
+    description: "A collection of responsive landing pages designed for various purposes.",
+    projects: [
+      {
+        name: "Portfolio Landing Page",
+        description: "A personal portfolio landing page.",
+        tags: [{ name: "HTML", color: "text-green-500" }],
+        image: "/path/to/image",
+        source_code_link: "https://github.com/your-repo",
+      },
+    ],
+  },
+];
