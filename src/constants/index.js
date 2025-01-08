@@ -109,11 +109,11 @@ export const sets = [
     description: "A collection of responsive landing pages designed for various purposes.",
     projects: [
       {
-        name: "Portfolio Landing Page",
-        description: "A personal portfolio landing page.",
+        name: "Velvora",
+        description: "A clothing brand landing page.",
         tags: [{ name: "HTML", color: "text-green-500" }],
-        image: "/path/to/image",
-        source_code_link: "https://github.com/your-repo",
+        image: "./projects/sets/landing/velvora.png",
+        source_code_link: "https://github.com/ketan1406/landing-velvora-ui",
       },
     ],
   },
