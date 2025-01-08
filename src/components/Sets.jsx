@@ -17,7 +17,7 @@ const SetsModal = ({ set, onClose }) => (
         {set.projects.map((project, index) => (
           <div
             key={index}
-            className="bg-secondary p-4 rounded-lg cursor-pointer relative" // Added 'relative'
+            className="bg-secondary p-2 rounded-lg cursor-pointer relative" // Added 'relative'
           >
             <img
               src={project.image}
