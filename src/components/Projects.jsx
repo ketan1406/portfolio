@@ -68,7 +68,7 @@ const Projects = () => {
           These projects highlight my expertise and technical skills, showcasing my work through<br />concise descriptions and repository links.
         </motion.p>
       </div>
-      <div className="mt-5 flex flex-wrap gap-7">
+      <div className="mt-5 flex justify-center items-center flex-wrap gap-6">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} {...project} />
         ))}
