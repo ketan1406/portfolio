@@ -21,6 +21,12 @@
   position: fixed;
 }
 
+.modal-border {
+  border: 4px solid;
+  border-image-source: linear-gradient(135deg, #8A2BE2, #1E90FF); /* Gradient border */
+  border-image-slice: 1; /* Ensures gradient fills the entire border */
+}
+
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
