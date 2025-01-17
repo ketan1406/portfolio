@@ -13,7 +13,7 @@ const SetsModal = ({ set, onClose }) => (
       />
       <h2 className="text-white text-2xl font-bold">{set.title}</h2>
       <p className="text-secondary mt-2">{set.description}</p>
-      <div className="mt-5 flex justify-center items-center flex-wrap gap-5">
+      <div className="mt-5 flex items-center flex-wrap gap-5">
         {set.projects.map((project, index) => (
           <div
             key={index}
