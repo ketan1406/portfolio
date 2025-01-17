@@ -15,12 +15,30 @@ export const navLinks = [
 ];
 // src/constants/index.js
 export const services = [
-  { title: "Python", icon: "https://img.icons8.com/?size=100&id=uLDrtp8o8zTG&format=png&color=000000" },
-  { title: "Java", icon: "https://img.icons8.com/?size=100&id=FRRACRKRsw2s&format=png&color=000000" },
-  { title: "C", icon: "https://img.icons8.com/?size=100&id=shQTXiDQiQVR&format=png&color=000000" },
-  { title: "HTML5", icon: "https://img.icons8.com/?size=100&id=CMVEhOBzk3Zp&format=png&color=000000" },
-  { title: "CSS", icon: "https://img.icons8.com/?size=100&id=5cVdiiKKi0vX&format=png&color=000000" },
-  { title: "Javascript", icon: "https://img.icons8.com/?size=100&id=V6HShIzw21x7&format=png&color=000000" },
+  {
+    title: "Python",
+    icon: "https://img.icons8.com/?size=100&id=uLDrtp8o8zTG&format=png&color=000000",
+  },
+  {
+    title: "Java",
+    icon: "https://img.icons8.com/?size=100&id=FRRACRKRsw2s&format=png&color=000000",
+  },
+  {
+    title: "C",
+    icon: "https://img.icons8.com/?size=100&id=shQTXiDQiQVR&format=png&color=000000",
+  },
+  {
+    title: "HTML5",
+    icon: "https://img.icons8.com/?size=100&id=CMVEhOBzk3Zp&format=png&color=000000",
+  },
+  {
+    title: "CSS",
+    icon: "https://img.icons8.com/?size=100&id=5cVdiiKKi0vX&format=png&color=000000",
+  },
+  {
+    title: "Javascript",
+    icon: "https://img.icons8.com/?size=100&id=V6HShIzw21x7&format=png&color=000000",
+  },
   // Add more services as needed
 ];
 
@@ -67,10 +85,25 @@ export const projects = [
     ],
     image: "./projects/ingredients-analyzer.png",
     source_code_link: "https://github.com/ketan1406/ingredients-analyzer",
-    page_link: "https://ketan1406-ingredients-analyzer-app-7gwwcn.streamlit.app/",
+    page_link:
+      "https://ketan1406-ingredients-analyzer-app-7gwwcn.streamlit.app/",
+  },
+  {
+    name: "PGAGI Analytics Dashboard",
+    description:
+      "A comprehensive web-based platform for managing and visualizing data related to stocks, news, weather, and user profiles, built with modern frontend and backend technologies.",
+    tags: [
+      { name: "Next.js", color: "blue-text-gradient" },
+      { name: "Tailwind CSS", color: "green-text-gradient" },
+      { name: "RTK Query", color: "purple-text-gradient" },
+      { name: "Redux Toolkit", color: "yellow-text-gradient" },
+      { name: "Vercel", color: "pink-text-gradient" },
+    ],
+    image: "./projects/pgagi-analytics-dashboard.png",
+    source_code_link: "https://github.com/ketan1406/pgagi-analytics-dashboard",
+    page_link: "https://pgagi-analytics-dashboard-taupe.vercel.app/",
   },
 ];
-
 
 export const sets = [
   {
@@ -87,7 +120,8 @@ export const sets = [
       },
       {
         name: "Tetrahedrons",
-        description: "An physics-based animation showcasing dynamic tetrahedrons",
+        description:
+          "An physics-based animation showcasing dynamic tetrahedrons",
         tags: [{ name: "Three.js", color: "text-blue-500" }],
         image: "./projects/sets/threejs/physics-tetrahedron.png",
         source_code_link: "https://github.com/ketan1406/threejs-phy-animation",
@@ -98,7 +132,8 @@ export const sets = [
         description: "A wireframe wormhole simulation.",
         tags: [{ name: "Three.js", color: "text-blue-500" }],
         image: "./projects/sets/threejs/wormhole.png",
-        source_code_link: "https://github.com/ketan1406/threejs-wireframe-wormhole",
+        source_code_link:
+          "https://github.com/ketan1406/threejs-wireframe-wormhole",
         page_link: "https://ketan1406.github.io/threejs-wireframe-wormhole/",
       },
       {
@@ -113,7 +148,8 @@ export const sets = [
   },
   {
     title: "Landing Pages",
-    description: "A collection of responsive landing pages designed for various purposes.",
+    description:
+      "A collection of responsive landing pages designed for various purposes.",
     projects: [
       {
         name: "Velvora",
