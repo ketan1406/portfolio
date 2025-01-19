@@ -8,7 +8,6 @@ import {
   Contact,
   Footer,
   Projects,
-  ParticleBackground
 } from "./components";
 
 const App = () => {
@@ -21,8 +20,7 @@ const App = () => {
         </div>
         <About />
         <Projects />
-        <div className="relative z-0">
-          <ParticleBackground />
+        <div className="relative z-0" style={{ backgroundImage: "url('/assets/contact-bg.png')", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center",}}>
           <Contact />
         </div>
         <Footer />
