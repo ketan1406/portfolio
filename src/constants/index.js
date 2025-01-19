@@ -103,6 +103,21 @@ export const projects = [
     source_code_link: "https://github.com/ketan1406/pgagi-analytics-dashboard",
     page_link: "https://pgagi-analytics-dashboard-taupe.vercel.app/",
   },
+  {
+    name: "Customer Care Agent",
+    description:
+      "AI-driven agent for automating customer support, capable of answering FAQs, managing orders, and providing product information. Built using Python, LangChain, and AstraDB.",
+    tags: [
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "LangChain", color: "green-text-gradient" },
+      { name: "AstraDB", color: "purple-text-gradient" },
+      { name: "AI Automation", color: "pink-text-gradient" },
+      { name: "Customer Support", color: "yellow-text-gradient" },
+    ],
+    image: "./projects/customer-care-agent.png",
+    source_code_link: "https://github.com/ketan1406/customer-care-agent",
+    page_link: "https://customer-agent-ketan1406.streamlit.app/",
+  },
 ];
 
 export const sets = [
