@@ -61,7 +61,7 @@ export const projects = [
   {
     name: "Dwindle - DigiLibrary",
     description:
-      "Dwindle is a Vue.js-powered digital library with Supabase and Tailwind CSS, offering seamless e-book management, user dashboards, admin controls, and responsive design for a modern reading experience.",
+      "Dwindle is a Vue.js digital library with Supabase and Tailwind CSS, offering e-book management, user/admin dashboards, and responsive design.",
     tags: [
       { name: "Vue.js", color: "blue-text-gradient" },
       { name: "Supabase", color: "green-text-gradient" },
