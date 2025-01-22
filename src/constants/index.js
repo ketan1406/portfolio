@@ -73,6 +73,19 @@ export const projects = [
     page_link: "https://dwindle.vercel.app/",
   },
   {
+    name: "CS Tool",
+    description:
+      "A lightweight, fast, and customizable cryptography and text utility tool built with Tailwind CSS, Vite, and Vanilla JavaScript.",
+    tags: [
+      { name: "Tailwind CSS", color: "blue-text-gradient" },
+      { name: "Vite", color: "green-text-gradient" },
+      { name: "Vanilla JS", color: "yellow-text-gradient" },
+    ],
+    image: "./projects/cs-tool.png",
+    source_code_link: "https://github.com/ketan1406/cs-tool",
+    page_link: "https://ketan1406.github.io/cs-tool/",
+  },
+  {
     name: "Ingredient Analyzer",
     description:
       "AI-powered tool to analyze product ingredients, provide health insights, and suggest healthier alternatives.",
