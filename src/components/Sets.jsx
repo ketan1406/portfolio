@@ -16,7 +16,7 @@ const SetsModal = ({ set, onClose }) => (
       <p className="text-secondary mt-2 text-center">{set.description}</p>
 
       {/* Project Cards */}
-      <div className="mt-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-center">
+      <div className="mt-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 justify-center">
         {set.projects.map((project, index) => (
           <div
             key={index}
