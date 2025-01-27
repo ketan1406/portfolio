@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
+import ClickOutside from "./ClickOutside";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleResume = () => {
     const resumeUrl = "https://drive.google.com/file/d/12OM_be0GFeTR-lkdYgqPUnqBX1SfJMF-/view?usp=sharing";
@@ -64,10 +66,15 @@ const Navbar = () => {
             alt="menu"
             className="w-[36px] h-[24px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
+            ref={menuRef}
           />
-          <div className={`p-4 bg-tertiary absolute top-10 right-0 mx-2 my-2 min-w-[120px] z-10 rounded-xl shadow-lg ${toggle ? "flex" : "hidden"}`}>
-            {renderNavLinks(true)}
-          </div>
+          {toggle && (
+            <ClickOutside onClick={() => setToggle(false)} exceptionRef={menuRef}>
+              <div className="p-4 bg-tertiary absolute top-10 right-0 mx-2 my-2 min-w-[120px] z-10 rounded-xl shadow-lg">
+                {renderNavLinks(true)}
+              </div>
+            </ClickOutside>
+          )}
         </div>
       </div>
     </nav>
