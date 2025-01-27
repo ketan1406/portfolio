@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
@@ -20,11 +19,11 @@ const Navbar = () => {
   }, [toggle]);
 
   const renderNavLinks = (isSecondary) => (
-    <ul className={`list-none ${isSecondary ? "flex sm:hidden" : "hidden sm:flex"} flex-row gap-6`}>
+    <ul className={`list-none ${isSecondary ? "flex sm:hidden flex-col" : "hidden sm:flex"} flex-row gap-6`}>
       {navLinks.map((link) => (
         <li
           key={link.id}
-          className={`${active === link.title ? "text-white" : isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[20px] font-medium cursor-pointer`}
+          className={`${active === link.title ? "text-white" : isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[15px] font-medium cursor-pointer`}
           onClick={() => {
             setActive(link.title);
             if (isSecondary) {
@@ -35,7 +34,7 @@ const Navbar = () => {
           <a href={`#${link.id}`}>{link.title}</a>
         </li>
       ))}
-      <li className={`${isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[20px] font-medium cursor-pointer`}>
+      <li className={`${isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[15px] font-medium cursor-pointer`}>
         <button onClick={toggleResume}>Resume</button>
       </li>
     </ul>
