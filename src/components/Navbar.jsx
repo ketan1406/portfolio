@@ -65,7 +65,7 @@ const Navbar = () => {
             className="w-[36px] h-[24px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
-          <div className={`p-4 black-gradient absolute top-14 right-0 mx-2 my-2 min-w-[120px] z-10 rounded-xl foggy-glass ${toggle ? "flex" : "hidden"}`}>
+          <div className={`p-4 bg-tertiary absolute top-10 right-0 mx-2 my-2 min-w-[120px] z-10 rounded-xl shadow-lg ${toggle ? "flex" : "hidden"}`}>
             {renderNavLinks(true)}
           </div>
         </div>
