@@ -17,33 +17,47 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-2 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary p-4 rounded-2xl w-full sm:w-[360px]"
       >
-        <div className="relative w-full h-[230px]">
+        {/* Image Container */}
+        <div className="relative w-full h-[200px] sm:h-[230px]">
           <img
             src={image}
-            alt="project_image"
+            alt={name}
             className="w-full h-full object-cover rounded-2xl"
           />
-          <div className="absolute top-0.5 right-0.5 flex justify-end card-img_hover gap-0">
+          {/* Links to Source Code and Live Page */}
+          <div className="absolute inset-0 flex justify-end m-3 gap-2">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"} alt="source code" className="w-6 h-6 object-contain" />
+              <img
+                src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
+                alt="source code"
+                className="w-5 h-5 object-contain"
+              />
             </div>
             <div
               onClick={() => window.open(page_link, "_blank")}
               className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src={"https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"} alt="source code" className="w-6 h-6 object-contain" />
+              <img
+                src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
+                alt="live site"
+                className="w-5 h-5 object-contain"
+              />
             </div>
           </div>
         </div>
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
+
+        {/* Project Details */}
+        <div className="mt-4">
+          <h3 className="text-white font-bold text-[20px]">{name}</h3>
           <p className="mt-2 text-secondary text-[14px]">{description}</p>
         </div>
+
+        {/* Tags */}
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <p key={tag.name} className={`text-[12px] ${tag.color}`}>
@@ -59,20 +73,32 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
 const Projects = () => {
   return (
     <>
+      {/* Section Header */}
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>My work</p>
+        <p className={`${styles.sectionSubText}`}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects</h2>
       </motion.div>
-      <div className="w-full justify-start">
-        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-[16px] max-w-3xl leading-[30px] text-left">
-          These projects highlight my expertise and technical skills, showcasing my work through<br />concise descriptions and repository links.
+
+      {/* Section Description */}
+      <div className="w-full">
+        <motion.p
+          variants={fadeIn("", "", 0.1)}
+          className="mt-3 text-secondary text-[16px] max-w-3xl leading-[30px] text-left"
+        >
+          These projects highlight my expertise and technical skills, showcasing my work through concise descriptions and repository links.
         </motion.p>
       </div>
-      <div className="mt-5 flex justify-center items-center flex-wrap gap-6">
-        {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} {...project} />
-        ))}
+
+      {/* Projects Grid */}
+      <div className="mt-10 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-0">
+          {projects.map((project, index) => (
+            <ProjectCard key={`project-${index}`} {...project} />
+          ))}
+        </div>
       </div>
+
+      {/* Sets Section */}
       <SetsSection />
     </>
   );
