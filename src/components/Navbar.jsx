@@ -62,7 +62,7 @@ const Navbar = () => {
         {renderNavLinks(false)}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
-            src={toggle ? "https://img.icons8.com/?size=100&id=44024&format=png&color=000000" : "https://img.icons8.com/?size=100&id=43636&format=png&color=000000"}
+            src={toggle ? "https://img.icons8.com/?size=100&id=9fyHXdGhDX2Z&format=png&color=000000" : "https://img.icons8.com/?size=100&id=9fyHXdGhDX2Z&format=png&color=000000"}
             alt="menu"
             className="w-[36px] h-[24px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
