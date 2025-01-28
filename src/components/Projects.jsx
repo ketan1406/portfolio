@@ -17,10 +17,10 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-4 rounded-2xl w-full xs:w-[240px] sm:w-[360px]"
+        className="bg-tertiary p-4 rounded-2xl w-full xs:w-[200px] sm:w-[360px]"
       >
         {/* Image Container */}
-        <div className="relative w-full xs:h-[230px] sm:h-[250px]">
+        <div className="relative w-full xs:h-[190px] sm:h-[250px]">
           <img
             src={image}
             alt={name}
@@ -54,7 +54,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
         {/* Project Details */}
         <div className="mt-4">
           <h3 className="text-white font-bold xs:text-[12px] sm:text-[20px]">{name}</h3>
-          <p className="mt-2 text-secondary xs:text-[9px] sm:text-[14px]">{description}</p>
+          <p className=" hidden sm:block mt-2 text-secondary sm:text-[14px]">{description}</p>
         </div>
 
         {/* Tags */}
