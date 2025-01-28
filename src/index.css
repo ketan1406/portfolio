@@ -162,3 +162,8 @@
 .confirmation {
   color: #00ff00;
 }
+
+.my-image-class {
+  -webkit-touch-callout: none; /* blocks the iOS long-press actions */
+  user-select: none; /* no text selection */
+}

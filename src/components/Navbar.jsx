@@ -64,7 +64,7 @@ const Navbar = () => {
           <img
             src={toggle ? "https://img.icons8.com/?size=100&id=9fyHXdGhDX2Z&format=png&color=000000" : "https://img.icons8.com/?size=100&id=44024&format=png&color=000000"}
             alt="menu"
-            className="w-8 h-8 object-contain cursor-pointer"
+            className="my-image-class w-8 h-8 object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
             ref={menuRef}
             onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press

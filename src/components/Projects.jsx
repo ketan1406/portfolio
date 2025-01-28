@@ -37,7 +37,7 @@ const ProjectCard = ({
             <img
               src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
               alt="source code"
-              className="w-3 h-3 sm:w-5 sm:h-5 object-contain"
+              className="my-image-class w-3 h-3 sm:w-5 sm:h-5 object-contain"
             />
           </div>
           <div
@@ -47,7 +47,7 @@ const ProjectCard = ({
             <img
               src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
               alt="live site"
-              className="w-3 h-3 sm:w-5 sm:h-5 object-contain"
+              className="my-image-class w-3 h-3 sm:w-5 sm:h-5 object-contain"
             />
           </div>
         </div>
