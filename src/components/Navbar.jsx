@@ -67,6 +67,9 @@ const Navbar = () => {
             className="w-8 h-8 object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
             ref={menuRef}
+            onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
+            onDragStart={(e) => e.preventDefault()}    // blocks drag
+            draggable="false"
           />
           {toggle && (
             <ClickOutside onClick={() => setToggle(false)} exceptionRef={menuRef}>

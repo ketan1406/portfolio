@@ -145,6 +145,9 @@ const MobileCarousel = () => {
           whileTap={{ scale: 0.9 }}     // We can keep this now
           onClick={handlePrev}
           className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
+          onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
+          onDragStart={(e) => e.preventDefault()}    // blocks drag
+          draggable="false"
         />
       </div>
 
@@ -176,6 +179,9 @@ const MobileCarousel = () => {
           whileTap={{ scale: 0.9 }}
           onClick={handleNext}
           className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
+          onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
+          onDragStart={(e) => e.preventDefault()}    // blocks drag
+          draggable="false"
         />
       </div>
     </div>
