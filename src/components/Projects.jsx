@@ -17,7 +17,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-2 sm:p-4 rounded-2xl w-full xs:w-[200px] sm:w-[360px]"
+        className="bg-tertiary p-2 sm:p-4 rounded-2xl xs:w-[249px] sm:w-[360px]"
       >
         {/* Image Container */}
         <div className="relative w-full xs:h-[190px] sm:h-[250px]">
@@ -53,14 +53,14 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
 
         {/* Project Details */}
         <div className="mt-4">
-          <h3 className="text-white font-bold xs:text-[12px] sm:text-[20px]">{name}</h3>
+          <h3 className="text-white font-bold xs:text-[15px] sm:text-[20px]">{name}</h3>
           <p className=" hidden sm:block mt-2 text-secondary sm:text-[14px]">{description}</p>
         </div>
 
         {/* Tags */}
         <div className="mt-2 sm:mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={tag.name} className={`xs:text-[8px] sm:text-[12px] ${tag.color}`}>
+            <p key={tag.name} className={`xs:text-[10px] sm:text-[12px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
