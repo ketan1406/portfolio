@@ -10,7 +10,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="hover:opacity-80"
         >
-          <img src="https://img.icons8.com/?size=100&id=44019&format=png&color=000000" alt="LinkedIn" className="w-8 h-8" />
+          <img src="https://img.icons8.com/?size=100&id=44019&format=png&color=000000" alt="LinkedIn" className="my-image-class w-8 h-8" onContextMenu={(e) => e.preventDefault()}  onDragStart={(e) => e.preventDefault()}  draggable="false"/>
         </a>
         <a
           href="https://github.com/ketan1406"
@@ -18,7 +18,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="hover:opacity-80"
         >
-          <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub" className="w-8 h-8" />
+          <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub" className="my-image-class w-8 h-8" onContextMenu={(e) => e.preventDefault()}  onDragStart={(e) => e.preventDefault()}  draggable="false"/>
         </a>
         <a
           href="https://www.instagram.com/_ketan.saini_/"
@@ -26,13 +26,13 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="hover:opacity-80"
         >
-          <img src="https://img.icons8.com/?size=100&id=43625&format=png&color=000000" alt="Instagram" className="w-8 h-8" />
+          <img src="https://img.icons8.com/?size=100&id=43625&format=png&color=000000" alt="Instagram" className="my-image-class w-8 h-8" onContextMenu={(e) => e.preventDefault()}  onDragStart={(e) => e.preventDefault()}  draggable="false" />
         </a>
         <a
           href="mailto:sainiketan99@gmail.com"
           className="hover:opacity-80"
         >
-          <img src="https://img.icons8.com/?size=100&id=44829&format=png&color=000000" alt="Email" className="w-8 h-8" />
+          <img src="https://img.icons8.com/?size=100&id=44829&format=png&color=000000" alt="Email" className="my-image-class w-8 h-8" onContextMenu={(e) => e.preventDefault()}  onDragStart={(e) => e.preventDefault()}  draggable="false"/>
         </a>
       </div>
 
