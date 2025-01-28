@@ -33,7 +33,7 @@ const Hero = () => {
                 I do{" "}
                 <Typewriter
                   options={{
-                    strings: ["Web Development","Analytics","AI & ML"],
+                    strings: ["Web Development","Data Analytics","AI & ML"],
                     autoStart: true,
                     loop: true,
                   }}
