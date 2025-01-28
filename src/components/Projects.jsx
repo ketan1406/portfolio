@@ -88,7 +88,7 @@ const ProjectCard = ({
   return (
     <Tilt
       options={{ max: 45, scale: 1, speed: 450 }}
-      className="bg-tertiary p-2 sm:p-4 rounded-2xl xs:w-[249px] sm:w-[360px] xs:h-[310px]"
+      className="bg-tertiary p-2 sm:p-4 rounded-2xl xs:w-[249px] sm:w-[360px] xs:h-[310px] sm:h-auto"
     >
       {cardContent}
     </Tilt>
