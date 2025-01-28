@@ -17,10 +17,10 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-4 rounded-2xl w-full xs:w-[200px] sm:w-[360px]"
+        className="bg-tertiary p-4 rounded-2xl w-full xs:w-[260px] sm:w-[360px]"
       >
         {/* Image Container */}
-        <div className="relative w-full xs:h-[150px] sm:h-[230px]">
+        <div className="relative w-full xs:h-[240px] sm:h-[250px]">
           <img
             src={image}
             alt={name}
@@ -30,22 +30,22 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
           <div className="absolute inset-0 flex justify-end m-3 gap-2">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img
                 src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
                 alt="source code"
-                className="w-5 h-5 object-contain"
+                className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
               />
             </div>
             <div
               onClick={() => window.open(page_link, "_blank")}
-              className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img
                 src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
                 alt="live site"
-                className="w-5 h-5 object-contain"
+                className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
               />
             </div>
           </div>
@@ -91,7 +91,7 @@ const Projects = () => {
 
       {/* Projects Grid */}
       <div className="mt-10 w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-0 justify-items-center">
           {projects.map((project, index) => (
             <ProjectCard key={`project-${index}`} {...project} />
           ))}
