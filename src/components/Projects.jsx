@@ -53,14 +53,14 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, page_li
 
         {/* Project Details */}
         <div className="mt-4">
-          <h3 className="text-white font-bold text-[20px] xs:text-[15]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px] xs:text-[10]">{description}</p>
+          <h3 className="text-white font-bold xs:text-[15px] sm:text-[20px]">{name}</h3>
+          <p className="mt-2 text-secondary xs:text-[10px] sm:text-[14px]">{description}</p>
         </div>
 
         {/* Tags */}
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={tag.name} className={`text-[12px] xs:text-[7] ${tag.color}`}>
+            <p key={tag.name} className={`xs:text-[7px] sm:text-[12px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
