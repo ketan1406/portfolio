@@ -44,7 +44,7 @@ const Hero = () => {
         </div>
 
         {/* Right side: The Earth model */}
-        <div className="w-full md:w-1/2 h-[400px] md:h-[650px]">
+        <div className="w-full md:w-1/2 h-[400px] md:h-[650px] lg:w-[721px]">
           <EarthCanvas />
         </div>
       </div>
