@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import ReactDOM from "react-dom"; 
 import { sets } from "../constants";
 import ClickOutside from "./ClickOutside";    // your existing click-outside component
 import { motion } from "framer-motion";
@@ -119,11 +120,10 @@ const SetsCarousel = ({ setData, hideTitle = false }) => {
 
 function OverlayCarousel({ setData, onClose }) {
   const overlayRef = useRef(null);
-
-  return (
+  const overlay = (
     <ClickOutside onClick={onClose} exceptionRef={overlayRef}>
       {/* Fullscreen translucent black background */}
-      <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center">
+      <div className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex justify-center items-center">
         {/* Carousel Container */}
         <div
           ref={overlayRef}
@@ -153,6 +153,8 @@ function OverlayCarousel({ setData, onClose }) {
       </div>
     </ClickOutside>
   );
+
+  return ReactDOM.createPortal(overlay, document.body);
 }
 
 
