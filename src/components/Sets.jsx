@@ -50,8 +50,34 @@ const SetCard = ({ project }) => {
 
 function MobileSetCard({ project }) {
   return (
-    <div className="bg-tertiary p-2 rounded-2xl w-[249px] h-auto flex flex-col items-center justify-center">
-      <h2 className="text-white font-bold text-lg mb-2">{project.name}</h2>
+    // Added "relative" so the absolute-positioned icons have a reference
+    <div className="relative bg-tertiary p-2 rounded-2xl w-[249px] h-auto flex flex-col items-start justify-center">
+      {/* The icon buttons: absolute top-right */}
+      <div className="absolute inset-0 flex justify-end m-2 gap-2">
+        <div
+          onClick={() => window.open(project.source_code_link, "_blank")}
+          className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
+        >
+          <img
+            src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
+            alt="source code"
+            className="my-image-class w-4 h-4 sm:w-5 sm:h-5 object-contain"
+          />
+        </div>
+        <div
+          onClick={() => window.open(project.page_link, "_blank")}
+          className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
+        >
+          <img
+            src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
+            alt="live site"
+            className="my-image-class w-4 h-4 sm:w-5 sm:h-5 object-contain"
+          />
+        </div>
+      </div>
+
+      {/* Existing title and image */}
+      <h2 className="text-white font-bold text-lg mb-1">{project.name}</h2>
       <img
         src={project.image}
         alt={project.name}

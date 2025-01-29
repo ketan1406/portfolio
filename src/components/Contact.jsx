@@ -3,21 +3,39 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+import { ComputersCanvas } from "./canvas"; // We'll hide this on small screens
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
   <label className="flex flex-col">
-    <span className="text-white font-medium mb-4">{label}</span>
+    {/* 
+      1) Make the label smaller on screens < md, normal on md+ 
+         e.g., text-sm on small, text-base on md. 
+    */}
+    <span className="text-white font-medium mb-2 text-sm md:text-base">
+      {label}
+    </span>
+
     <input
       type={type}
       name={name}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+      className="
+        bg-tertiary
+        rounded-lg
+        outline-none
+        border-none
+        text-white
+        placeholder:text-secondary
+        font-medium
+        py-2 px-4     /* smaller padding on small screens */
+        md:py-4 md:px-6 /* revert to bigger on md+ */
+        text-sm md:text-base  /* smaller text on mobile, normal on md+ */
+      "
     />
   </label>
 );
@@ -85,12 +103,24 @@ const Contact = () => {
   };
 
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
-      <motion.div variants={slideIn("left", "tween", 0.2, 1)} className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
+    <div
+      className={`
+        xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden
+      `}
+    >
+      {/* Left side: The form */}
+      <motion.div
+        variants={slideIn("left", "tween", 0.2, 1)}
+        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+      >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact Me</h3>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="mt-12 flex flex-col gap-6"
+        >
           <InputField
             label="Your Name"
             name="name"
@@ -99,7 +129,11 @@ const Contact = () => {
             placeholder="Insert Your name here..."
             type="text"
           />
-          {nameError && <span className="text-red-500">{nameError}</span>}
+          {nameError && (
+            <span className="text-red-500 text-sm md:text-base">
+              {nameError}
+            </span>
+          )}
 
           <InputField
             label="Email Address"
@@ -109,7 +143,11 @@ const Contact = () => {
             placeholder="What's your email address?"
             type="email"
           />
-          {emailError && <span className="text-red-500">{emailError}</span>}
+          {emailError && (
+            <span className="text-red-500 text-sm md:text-base">
+              {emailError}
+            </span>
+          )}
 
           <InputField
             label="Your Message"
@@ -120,20 +158,40 @@ const Contact = () => {
             type="text"
           />
 
+          {/* Button: smaller on mobile, normal on md+ */}
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            className="
+              bg-tertiary
+              rounded-xl
+              outline-none
+              text-white
+              font-bold
+              shadow-md shadow-primary
+              py-2 px-4
+              md:py-3 md:px-8
+              text-sm md:text-base
+              w-fit
+            "
           >
             {loading ? "Sending..." : "Send"}
           </button>
-          {confirmation && <p className="text-green-500">{confirmation}</p>}
+          {confirmation && (
+            <p className="text-green-500 text-sm md:text-base">{confirmation}</p>
+          )}
         </form>
       </motion.div>
 
-      <motion.div variants={slideIn("right", "tween", 0.2, 1)} className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">
+      {/* Right side: The ComputersCanvas, only show on md+ */}
+      <motion.div
+        variants={slideIn("right", "tween", 0.2, 1)}
+        // Hide for screens < md
+        className="hidden md:block md:flex-1 md:h-[550px] xl:flex-1 xl:h-auto"
+      >
         <ComputersCanvas />
       </motion.div>
     </div>
   );
 };
+
 export default SectionWrapper(Contact, "contact");
