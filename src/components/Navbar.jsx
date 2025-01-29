@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import ClickOutside from "./ClickOutside";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -61,11 +62,12 @@ const Navbar = () => {
         </Link>
         {renderNavLinks(false)}
         <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
+          <motion.img
             src={toggle ? "https://img.icons8.com/?size=100&id=9fyHXdGhDX2Z&format=png&color=000000" : "https://img.icons8.com/?size=100&id=44024&format=png&color=000000"}
             alt="menu"
             className="my-image-class w-8 h-8 object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
+            whileTap={{ scale: 0.8 }}
             ref={menuRef}
             onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
             onDragStart={(e) => e.preventDefault()}    // blocks drag
