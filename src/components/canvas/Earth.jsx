@@ -31,7 +31,7 @@ export default function EarthCanvas() {
     } else if (width < 1024) {
       setDimensions({ fov: 50, position: [-4, 3, 6], scale: 2.5 });
     } else {
-      setDimensions({ fov: 45, position: [-4, 3, 6], scale: 3.5 });
+      setDimensions({ fov: 45, position: [-4, 3, 6], scale: 3.4 });
     }
   };
 
