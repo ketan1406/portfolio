@@ -2,7 +2,8 @@ import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom"; 
 import { sets } from "../constants";
 import ClickOutside from "./ClickOutside";    // your existing click-outside component
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const SetCard = ({ project }) => {
   return (
@@ -28,7 +29,7 @@ const SetCard = ({ project }) => {
             <img
               src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
               alt="source code"
-              className="my-image-class w-3 h-3 sm:w-5 sm:h-5 object-contain"
+              className="my-image-class w-6 h-6 object-contain"
             />
           </div>
           <div
@@ -38,7 +39,7 @@ const SetCard = ({ project }) => {
             <img
               src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
               alt="live site"
-              className="my-image-class w-3 h-3 sm:w-5 sm:h-5 object-contain"
+              className="my-image-class w-6 h-6  object-contain"
             />
           </div>
         </div>
@@ -46,6 +47,83 @@ const SetCard = ({ project }) => {
     </div>
   );
 };
+
+function MobileSetCard({ project }) {
+  return (
+    <div className="bg-tertiary p-2 rounded-2xl w-[249px] h-auto flex flex-col items-center justify-center">
+      <h2 className="text-white font-bold text-lg mb-2">{project.name}</h2>
+      <img
+        src={project.image}
+        alt={project.name}
+        className="w-full h-[150px] object-cover rounded-md"
+      />
+    </div>
+  );
+}
+
+export function SetsMobileCarousel({ setData }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const length = setData.projects.length;
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + length) % length);
+  };
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % length);
+  };
+
+  return (
+    <div className="relative w-full h-[350px] flex items-center justify-center overflow-hidden">
+      {/* Left Arrow */}
+      <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
+        <motion.img
+          src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
+          alt="prev"
+          whileTap={{ scale: 0.8 }}
+          onClick={handlePrev}
+          className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+          draggable="false"
+        />
+      </div>
+
+      {/* Slides */}
+      <div className="relative w-[250px] h-[300px] flex items-center justify-center">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute w-full h-full flex items-center justify-center"
+          >
+            <MobileSetCard project={setData.projects[currentIndex]} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Right Arrow */}
+      <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
+        <motion.img
+          src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
+          alt="next"
+          whileTap={{ scale: 0.8 }}
+          onClick={handleNext}
+          className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+          draggable="false"
+        />
+      </div>
+    </div>
+  );
+}
 
 const SetsCarousel = ({ setData, hideTitle = false }) => {
   const [active, setActive] = useState(0);
@@ -120,35 +198,43 @@ const SetsCarousel = ({ setData, hideTitle = false }) => {
 
 function OverlayCarousel({ setData, onClose }) {
   const overlayRef = useRef(null);
+  const isSmallScreen = useMediaQuery("(max-width: 640px)");
+
   const overlay = (
     <ClickOutside onClick={onClose} exceptionRef={overlayRef}>
-      {/* Fullscreen translucent black background */}
       <div className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex justify-center items-center">
-        {/* Carousel Container */}
         <div
           ref={overlayRef}
           className="relative max-w-4xl w-full mx-4 p-4 bg-transparent"
         >
-          {/* Header row: Title (left), Close icon (right) */}
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-white text-xl font-bold ml-20">
+          {/* Make the title & X a bit smaller for mobile */}
+          <div className="flex items-center justify-between mb-2">
+            <h2
+              className={`text-white font-bold ml-4 ${
+                isSmallScreen ? "text-lg" : "text-xl ml-20"
+              }`}
+            >
               {setData.title}
             </h2>
             <motion.img
               src="https://img.icons8.com/?size=100&id=110627&format=png&color=ffffff"
               alt="Close"
-              className="w-6 h-6 mr-20 cursor-pointer"
+              className={`cursor-pointer ${
+                isSmallScreen ? "w-5 h-5 mr-4" : "w-6 h-6 mr-20"
+              }`}
               onClick={onClose}
-              draggable="false"
               whileTap={{ scale: 0.8 }}
-              onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
-              onDragStart={(e) => e.preventDefault()}    // blocks drag
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
             />
           </div>
 
-          {/* The 3D Carousel below. 
-              We'll pass hideTitle so it doesn't show the big <h1> again. */}
-          <SetsCarousel setData={setData} hideTitle />
+          {/* If mobile => SetsMobileCarousel, else => normal 3D SetsCarousel */}
+          {isSmallScreen ? (
+            <SetsMobileCarousel setData={setData} />
+          ) : (
+            <SetsCarousel setData={setData} hideTitle />
+          )}
         </div>
       </div>
     </ClickOutside>
@@ -156,7 +242,6 @@ function OverlayCarousel({ setData, onClose }) {
 
   return ReactDOM.createPortal(overlay, document.body);
 }
-
 
 export default function SetsSection() {
   const [selectedSet, setSelectedSet] = useState(null);

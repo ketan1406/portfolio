@@ -37,7 +37,7 @@ const ProjectCard = ({
             <img
               src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
               alt="source code"
-              className="my-image-class w-3 h-3 sm:w-5 sm:h-5 object-contain"
+              className="my-image-class w-4 h-4 sm:w-5 sm:h-5 object-contain"
             />
           </div>
           <div
@@ -47,7 +47,7 @@ const ProjectCard = ({
             <img
               src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
               alt="live site"
-              className="my-image-class w-3 h-3 sm:w-5 sm:h-5 object-contain"
+              className="my-image-class w-4 h-4 sm:w-5 sm:h-5 object-contain"
             />
           </div>
         </div>
@@ -138,7 +138,7 @@ const MobileCarousel = () => {
   return (
     <div className="relative w-full h-[430px] mt-10 mb-8 flex items-center justify-center overflow-hidden">
       {/* Left Chevron */}
-      <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-20 h-20 z-10">
+      <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
         <motion.img
           src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
           alt="prev"
@@ -172,7 +172,7 @@ const MobileCarousel = () => {
       </div>
 
       {/* Right Chevron */}
-      <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-20 h-20 z-10">
+      <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
         <motion.img
           src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
           alt="next"
