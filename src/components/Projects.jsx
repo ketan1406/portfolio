@@ -142,7 +142,7 @@ const MobileCarousel = () => {
         <motion.img
           src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
           alt="prev"
-          whileTap={{ scale: 0.9 }}     // We can keep this now
+          whileTap={{ scale: 0.8 }}     // We can keep this now
           onClick={handlePrev}
           className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
           onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
@@ -176,7 +176,7 @@ const MobileCarousel = () => {
         <motion.img
           src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
           alt="next"
-          whileTap={{ scale: 0.9 }}
+          whileTap={{ scale: 0.8 }}
           onClick={handleNext}
           className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
           onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
