@@ -250,6 +250,7 @@ function OverlayCarousel({ setData, onClose }) {
               }`}
               onClick={onClose}
               whileTap={{ scale: 0.8 }}
+              draggable="false"
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
             />
