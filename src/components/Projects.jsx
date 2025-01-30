@@ -98,20 +98,18 @@ const ProjectCard = ({
 };
 
 function ProjectsCarousel() {
-  // Decide how many items per "slide"
-  const isLg = useMediaQuery("(min-width: 1024px)"); // tailwind's 'lg'
-  const isSm = useMediaQuery("(min-width: 640px)");  // tailwind's 'sm'
+  const isLg = useMediaQuery("(min-width: 1024px)");
+  const isSm = useMediaQuery("(min-width: 640px)");
 
   let itemsPerSlide = 1;
   if (isLg) {
-    itemsPerSlide = 6; // 6 => 2 rows x 3 columns
+    itemsPerSlide = 6;
   } else if (isSm) {
-    itemsPerSlide = 4; // 4 => 2 rows x 2 columns
+    itemsPerSlide = 4;
   } else {
-    itemsPerSlide = 1; // 1 => 1 row x 1 column
+    itemsPerSlide = 1;
   }
 
-  // Convert the projects array into smaller arrays
   const chunkedProjects = chunkArray(projects, itemsPerSlide);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -127,42 +125,70 @@ function ProjectsCarousel() {
     setCurrentIndex((prev) => (prev - 1 + chunkedProjects.length) % chunkedProjects.length);
   };
 
-  // 2-row layout if itemsPerSlide=6 => grid-cols-3 grid-rows-2
-  // 2-row layout if itemsPerSlide=4 => grid-cols-2 grid-rows-2
-  // 1 layout if itemsPerSlide=1 => just one
-  let gridClasses = "flex justify-center items-center"; // fallback for 1
+  // Jump to a specific chunk when user clicks a dot
+  const handleDotClick = (idx) => {
+    if (idx !== currentIndex) {
+      setDirection(idx > currentIndex ? 1 : -1);
+      setCurrentIndex(idx);
+    }
+  };
+
+  // Grid logic
+  let gridClasses = "flex justify-center items-center";
   if (itemsPerSlide === 6) {
-    // 2 rows of 3
     gridClasses = "grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
   } else if (itemsPerSlide === 4) {
-    // 2 rows of 2
     gridClasses = "grid grid-cols-2 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
   }
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto z-10"> 
-      {/* Arrow: left */}
-      <div className="absolute z-10 left-4 top-1/2 -translate-y-1/2">
+    <div className="relative w-full max-w-7xl mx-auto z-10">
+      {/* TOP controls (arrows + dots) */}
+      <div className="absolute top-0 left-0 w-full flex items-center justify-center gap-6  z-10">
+        {/* Left arrow */}
         <motion.img
           src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
           alt="prev"
           whileTap={{ scale: 0.8 }}
           onClick={handlePrev}
-          className="w-20 h-20 black-gradient p-2 rounded-full cursor-pointer"
+          className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
           draggable="false"
         />
-      </div>
 
-      {/* Arrow: right */}
-      <div className="absolute z-10 right-4 top-1/2 -translate-y-1/2">
+        {/* Pagination dots */}
+        <div className="flex items-center gap-3">
+          {chunkedProjects.map((_, idx) => {
+            const isActive = idx === currentIndex;
+            return (
+              <div
+                key={idx}
+                onClick={() => handleDotClick(idx)}
+                // A fixed bounding box so both states align identically
+                className="w-6 h-6 flex items-center justify-center cursor-pointer"
+              >
+                {isActive ? (
+                  <img
+                    src="https://img.icons8.com/?size=100&id=VzU7PPLtpY2i&format=png&color=000000"
+                    alt="active dot"
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <div className="w-2 h-2 bg-white rounded-full" />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Right arrow */}
         <motion.img
           src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
           alt="next"
           whileTap={{ scale: 0.8 }}
           onClick={handleNext}
-          className="w-20 h-20 black-gradient p-2 rounded-full cursor-pointer"
+          className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
           draggable="false"
@@ -170,10 +196,10 @@ function ProjectsCarousel() {
       </div>
 
       {/* Slides container */}
-      <div className="relative mt-10 overflow-hidden min-h-[550px] sm:min-h-[1100px]">
+      <div className="relative top-5 mt-10 overflow-hidden min-h-[550px] sm:min-h-[1100px]">
         <AnimatePresence initial={false} custom={direction}>
           {chunkedProjects.map((group, i) =>
-            i === currentIndex ? (
+            i === currentIndex && (
               <motion.div
                 key={i}
                 custom={direction}
@@ -187,7 +213,7 @@ function ProjectsCarousel() {
                   <ProjectCard key={project.name} {...project} />
                 ))}
               </motion.div>
-            ) : null
+            )
           )}
         </AnimatePresence>
       </div>
