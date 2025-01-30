@@ -98,8 +98,12 @@ const ProjectCard = ({
 };
 
 function ProjectsCarousel() {
+  // Already have:
   const isLg = useMediaQuery("(min-width: 1024px)");
   const isSm = useMediaQuery("(min-width: 640px)");
+
+  // Add for XS:
+  const isXs = useMediaQuery("(max-width: 639px)");
 
   let itemsPerSlide = 1;
   if (isLg) {
@@ -112,6 +116,7 @@ function ProjectsCarousel() {
 
   const chunkedProjects = chunkArray(projects, itemsPerSlide);
 
+  // chunk logic...
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -119,13 +124,10 @@ function ProjectsCarousel() {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % chunkedProjects.length);
   };
-
   const handlePrev = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + chunkedProjects.length) % chunkedProjects.length);
   };
-
-  // Jump to a specific chunk when user clicks a dot
   const handleDotClick = (idx) => {
     if (idx !== currentIndex) {
       setDirection(idx > currentIndex ? 1 : -1);
@@ -133,70 +135,109 @@ function ProjectsCarousel() {
     }
   };
 
-  // Grid logic
+  // *** This is the part that must exist before you map over gridClasses ***
   let gridClasses = "flex justify-center items-center";
   if (itemsPerSlide === 6) {
     gridClasses = "grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
   } else if (itemsPerSlide === 4) {
     gridClasses = "grid grid-cols-2 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
-  }
+  } 
+  // for 1, we keep the fallback
 
   return (
     <div className="relative w-full max-w-7xl mx-auto z-10">
-      {/* TOP controls (arrows + dots) */}
-      <div className="absolute top-0 left-0 w-full flex items-center justify-center gap-6  z-10">
-        {/* Left arrow */}
-        <motion.img
-          src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
-          alt="prev"
-          whileTap={{ scale: 0.8 }}
-          onClick={handlePrev}
-          className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
-          onContextMenu={(e) => e.preventDefault()}
-          onDragStart={(e) => e.preventDefault()}
-          draggable="false"
-        />
+      {/* 
+        1) If isXs => place arrows on left/right & hide dots
+        2) Else => top bar with arrows + dots
+      */}
+      {isXs ? (
+        <>
+          {/* Arrows on left/right sides for XS */}
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
+            <motion.img
+              src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
+              alt="prev"
+              whileTap={{ scale: 0.8 }}
+              onClick={handlePrev}
+              className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+              draggable="false"
+            />
+          </div>
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10">
+            <motion.img
+              src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
+              alt="next"
+              whileTap={{ scale: 0.8 }}
+              onClick={handleNext}
+              className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+              draggable="false"
+            />
+          </div>
+        </>
+      ) : (
+        <div className="absolute top-0 left-0 w-full flex items-center justify-center gap-6 z-10">
+          {/* Left arrow */}
+          <motion.img
+            src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
+            alt="prev"
+            whileTap={{ scale: 0.8 }}
+            onClick={handlePrev}
+            className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()}
+            draggable="false"
+          />
 
-        {/* Pagination dots */}
-        <div className="flex items-center gap-3">
-          {chunkedProjects.map((_, idx) => {
-            const isActive = idx === currentIndex;
-            return (
-              <div
-                key={idx}
-                onClick={() => handleDotClick(idx)}
-                // A fixed bounding box so both states align identically
-                className="w-6 h-6 flex items-center justify-center cursor-pointer"
-              >
-                {isActive ? (
-                  <img
-                    src="https://img.icons8.com/?size=100&id=VzU7PPLtpY2i&format=png&color=000000"
-                    alt="active dot"
-                    className="w-full h-full object-contain"
-                  />
-                ) : (
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                )}
-              </div>
-            );
-          })}
+          {/* Dots */}
+          <div className="flex items-center gap-3">
+            {chunkedProjects.map((_, idx) => {
+              const isActive = idx === currentIndex;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => handleDotClick(idx)}
+                  className="w-6 h-6 flex items-center justify-center cursor-pointer"
+                >
+                  {isActive ? (
+                    <img
+                      src="https://img.icons8.com/?size=100&id=VzU7PPLtpY2i&format=png&color=000000"
+                      alt="active dot"
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <div className="w-2 h-2 bg-white rounded-full" />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right arrow */}
+          <motion.img
+            src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
+            alt="next"
+            whileTap={{ scale: 0.8 }}
+            onClick={handleNext}
+            className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()}
+            draggable="false"
+          />
         </div>
+      )}
 
-        {/* Right arrow */}
-        <motion.img
-          src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
-          alt="next"
-          whileTap={{ scale: 0.8 }}
-          onClick={handleNext}
-          className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
-          onContextMenu={(e) => e.preventDefault()}
-          onDragStart={(e) => e.preventDefault()}
-          draggable="false"
-        />
-      </div>
-
-      {/* Slides container */}
-      <div className="relative top-5 mt-10 overflow-hidden min-h-[550px] sm:min-h-[1100px]">
+      {/* The slides container */}
+      <div
+        className={
+          isXs
+            ? "relative mt-10 overflow-hidden min-h-[550px]" 
+            : "relative top-5 mt-24 overflow-hidden min-h-[550px] sm:min-h-[1100px]"
+        }
+      >
         <AnimatePresence initial={false} custom={direction}>
           {chunkedProjects.map((group, i) =>
             i === currentIndex && (
