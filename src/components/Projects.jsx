@@ -204,7 +204,7 @@ function ProjectsCarousel() {
                 >
                   {isActive ? (
                     <img
-                      src="https://img.icons8.com/?size=100&id=VzU7PPLtpY2i&format=png&color=000000"
+                      src="https://img.icons8.com/?size=100&id=N-aPJN6VfRBa&format=png&color=000000"
                       alt="active dot"
                       className="w-full h-full object-contain"
                     />
