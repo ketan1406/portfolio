@@ -3,15 +3,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tilt } from "react-tilt";
-
-import useMediaQuery from "../hooks/useMediaQuery"; // Make sure this hook exists
+import useMediaQuery from "../hooks/useMediaQuery";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import SetsSection from "./Sets";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import chunkArray from "../utils/chunkArray";
 
-// A reusable card that optionally uses Tilt (desktop) or plain div (mobile).
+// A reusable card
 const ProjectCard = ({
   name,
   description,
@@ -19,16 +19,18 @@ const ProjectCard = ({
   image,
   source_code_link,
   page_link,
-  tiltEnabled = true, // We'll pass in "false" on mobile
-  fadeInVariant = null, // We'll pass in fadeIn details on desktop only
+  tiltEnabled = true,
 }) => {
   const cardContent = (
     <>
       {/* Image Container */}
       <div className="relative w-full xs:h-[190px] sm:h-[250px]">
-        <img src={image} alt={name} className="w-full h-full object-cover rounded-2xl" />
-
-        {/* Source/Live Icons */}
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover rounded-2xl"
+        />
+        {/* Icon buttons top-right */}
         <div className="absolute inset-0 flex justify-end m-3 gap-2">
           <div
             onClick={() => window.open(source_code_link, "_blank")}
@@ -75,7 +77,7 @@ const ProjectCard = ({
     </>
   );
 
-  // If tilt is disabled, just wrap in a normal div.
+  // If tilt is disabled, normal card
   if (!tiltEnabled) {
     return (
       <div className="bg-tertiary p-2 sm:p-4 rounded-2xl xs:w-[249px] sm:w-[360px]">
@@ -84,7 +86,7 @@ const ProjectCard = ({
     );
   }
 
-  // Otherwise, wrap in Tilt
+  // Otherwise, tilt
   return (
     <Tilt
       options={{ max: 45, scale: 1, speed: 450 }}
@@ -95,110 +97,119 @@ const ProjectCard = ({
   );
 };
 
-// Desktop: Just a grid of ProjectCards
-const DesktopGrid = () => {
-  return (
-    <motion.div
-      // fade the entire grid in
-      variants={fadeIn("", "", 0.1, 1)}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-      className="mt-10 w-full"
-    >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-0 justify-items-center">
-        {projects.map((project, idx) => (
-          <motion.div variants={fadeIn("up", "spring", idx * 0.15, 0.75)} key={project.name}>
-            <ProjectCard
-              {...project}
-              tiltEnabled={true}       // Enable Tilt on desktop
-              fadeInVariant={fadeIn}  // Optionally pass fadeIn
-            />
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  );
-};
+function ProjectsCarousel() {
+  // Decide how many items per "slide"
+  const isLg = useMediaQuery("(min-width: 1024px)"); // tailwind's 'lg'
+  const isSm = useMediaQuery("(min-width: 640px)");  // tailwind's 'sm'
 
-// Mobile carousel: Slides each project in/out with AnimatePresence
-const MobileCarousel = () => {
+  let itemsPerSlide = 1;
+  if (isLg) {
+    itemsPerSlide = 6; // 6 => 2 rows x 3 columns
+  } else if (isSm) {
+    itemsPerSlide = 4; // 4 => 2 rows x 2 columns
+  } else {
+    itemsPerSlide = 1; // 1 => 1 row x 1 column
+  }
+
+  // Convert the projects array into smaller arrays
+  const chunkedProjects = chunkArray(projects, itemsPerSlide);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const handlePrev = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  };
   const handleNext = () => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
+    setCurrentIndex((prev) => (prev + 1) % chunkedProjects.length);
   };
 
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + chunkedProjects.length) % chunkedProjects.length);
+  };
+
+  // 2-row layout if itemsPerSlide=6 => grid-cols-3 grid-rows-2
+  // 2-row layout if itemsPerSlide=4 => grid-cols-2 grid-rows-2
+  // 1 layout if itemsPerSlide=1 => just one
+  let gridClasses = "flex justify-center items-center"; // fallback for 1
+  if (itemsPerSlide === 6) {
+    // 2 rows of 3
+    gridClasses = "grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
+  } else if (itemsPerSlide === 4) {
+    // 2 rows of 2
+    gridClasses = "grid grid-cols-2 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
+  }
+
   return (
-    <div className="relative w-full h-[430px] mt-10 mb-8 flex items-center justify-center overflow-hidden">
-      {/* Left Chevron */}
-      <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
+    <div className="relative w-full max-w-7xl mx-auto z-10"> 
+      {/* Arrow: left */}
+      <div className="absolute z-10 left-4 top-1/2 -translate-y-1/2">
         <motion.img
           src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
           alt="prev"
-          whileTap={{ scale: 0.8 }}     // We can keep this now
+          whileTap={{ scale: 0.8 }}
           onClick={handlePrev}
-          className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
-          onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
-          onDragStart={(e) => e.preventDefault()}    // blocks drag
+          className="w-20 h-20 black-gradient p-2 rounded-full cursor-pointer"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
           draggable="false"
         />
       </div>
 
-      {/* Animated Card */}
-      <div className="relative w-[250px] h-[300px] flex items-center justify-center">
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={currentIndex}
-            custom={direction}
-            initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="absolute w-full h-full flex items-center justify-center"
-          >
-            <ProjectCard
-              {...projects[currentIndex]}
-              tiltEnabled={false} // Disable tilt on mobile
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Right Chevron */}
-      <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
+      {/* Arrow: right */}
+      <div className="absolute z-10 right-4 top-1/2 -translate-y-1/2">
         <motion.img
           src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
           alt="next"
           whileTap={{ scale: 0.8 }}
           onClick={handleNext}
-          className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
-          onContextMenu={(e) => e.preventDefault()}  // blocks right-click or long-press
-          onDragStart={(e) => e.preventDefault()}    // blocks drag
+          className="w-20 h-20 black-gradient p-2 rounded-full cursor-pointer"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
           draggable="false"
         />
       </div>
+
+      {/* Slides container */}
+      <div className="relative mt-10 overflow-hidden min-h-[550px] sm:min-h-[1100px]">
+        <AnimatePresence initial={false} custom={direction}>
+          {chunkedProjects.map((group, i) =>
+            i === currentIndex ? (
+              <motion.div
+                key={i}
+                custom={direction}
+                initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className={`absolute inset-0 ${gridClasses} py-6`}
+              >
+                {group.map((project) => (
+                  <ProjectCard key={project.name} {...project} />
+                ))}
+              </motion.div>
+            ) : null
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
-};
+}
 
 const Projects = () => {
-  const isSmallScreen = useMediaQuery("(max-width: 640px)");
-
   return (
     <>
-      {/* Section header */}
-      <motion.div variants={textVariant()} initial="hidden" whileInView="show" viewport={{ once: true }}>
+      {/* Heading */}
+      <motion.div
+        variants={textVariant()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects</h2>
       </motion.div>
 
+      {/* Subtext */}
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
         initial="hidden"
@@ -206,15 +217,15 @@ const Projects = () => {
         viewport={{ once: true }}
       >
         <p className="mt-3 text-secondary text-[16px] max-w-3xl leading-[30px] text-left">
-          These projects highlight my expertise and technical skills, showcasing my
-          work through concise descriptions and repository links.
+        These projects highlight my expertise and technical skills, showcasing my
+        work through concise descriptions and repository links.
         </p>
       </motion.div>
 
-      {/* Show carousel or grid */}
-      {isSmallScreen ? <MobileCarousel /> : <DesktopGrid />}
+      {/* Carousel */}
+      <ProjectsCarousel />
 
-      {/* The sets section below */}
+      {/* Sets section */}
       <SetsSection />
     </>
   );
