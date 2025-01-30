@@ -102,19 +102,18 @@ export const projects = [
       "https://ketan1406-ingredients-analyzer-app-7gwwcn.streamlit.app/",
   },
   {
-    name: "PGAGI Analytics Dashboard",
+    name: "Rabbit Game",
     description:
-      "A comprehensive web-based platform for managing and visualizing data related to stocks, news, weather, and user profiles, built with modern frontend and backend technologies.",
+      "Rabbit Game is a Python-based grid adventure where you control a rabbit, collect carrots, and navigate obstacles using the curses library for a dynamic terminal UI.",
     tags: [
-      { name: "Next.js", color: "blue-text-gradient" },
-      { name: "Tailwind CSS", color: "green-text-gradient" },
-      { name: "RTK Query", color: "purple-text-gradient" },
-      { name: "Redux Toolkit", color: "yellow-text-gradient" },
-      { name: "Vercel", color: "pink-text-gradient" },
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "Game Development", color: "green-text-gradient" },
+      { name: "Algorithms", color: "pink-text-gradient" },
+      { name: "curses", color: "yellow-text-gradient" },
     ],
-    image: "./projects/pgagi-analytics-dashboard.png",
-    source_code_link: "https://github.com/ketan1406/pgagi-analytics-dashboard",
-    page_link: "https://pgagi-analytics-dashboard-taupe.vercel.app/",
+    image: "./projects/rabbit-game.png",
+    source_code_link: "https://github.com/ketan1406/Rabbit-Game",
+    page_link: "https://github.com/ketan1406/Rabbit-Game",
   },
   {
     name: "Customer Care Agent",
@@ -130,6 +129,21 @@ export const projects = [
     image: "./projects/customer-care-agent.png",
     source_code_link: "https://github.com/ketan1406/customer-care-agent",
     page_link: "https://customer-agent-ketan1406.streamlit.app/",
+  },
+  {
+    name: "PGAGI Analytics Dashboard",
+    description:
+      "A comprehensive web-based platform for managing and visualizing data related to stocks, news, weather, and user profiles, built with modern frontend and backend technologies.",
+    tags: [
+      { name: "Next.js", color: "blue-text-gradient" },
+      { name: "Tailwind CSS", color: "green-text-gradient" },
+      { name: "RTK Query", color: "purple-text-gradient" },
+      { name: "Redux Toolkit", color: "yellow-text-gradient" },
+      { name: "Vercel", color: "pink-text-gradient" },
+    ],
+    image: "./projects/pgagi-analytics-dashboard.png",
+    source_code_link: "https://github.com/ketan1406/pgagi-analytics-dashboard",
+    page_link: "https://pgagi-analytics-dashboard-taupe.vercel.app/",
   },
 ];
 
