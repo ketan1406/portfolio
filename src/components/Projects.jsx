@@ -234,8 +234,8 @@ function ProjectsCarousel() {
       <div
         className={
           isXs
-            ? "relative mt-10 overflow-hidden min-h-[550px]" 
-            : "relative top-5 mt-24 overflow-hidden min-h-[550px] sm:min-h-[1100px]"
+            ? "relative mt-10 overflow-hidden min-h-[450px]" 
+            : "relative top-5 mt-10 overflow-hidden min-h-[450px] sm:min-h-[1100px]"
         }
       >
         <AnimatePresence initial={false} custom={direction}>
