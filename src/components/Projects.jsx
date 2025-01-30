@@ -153,25 +153,25 @@ function ProjectsCarousel() {
       {isXs ? (
         <>
           {/* Arrows on left/right sides for XS */}
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
+          <div className="arrow-btn absolute -left-2 top-1/2 -translate-y-1/2 z-10">
             <motion.img
               src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
               alt="prev"
               whileTap={{ scale: 0.8 }}
               onClick={handlePrev}
-              className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
+              className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
               draggable="false"
             />
           </div>
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10">
+          <div className="arrow-btn absolute -right-2 top-1/2 -translate-y-1/2 z-10">
             <motion.img
               src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
               alt="next"
               whileTap={{ scale: 0.8 }}
               onClick={handleNext}
-              className="w-12 h-12 black-gradient p-2 rounded-full cursor-pointer"
+              className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
               draggable="false"
