@@ -213,6 +213,19 @@ export const sets = [
         source_code_link: "https://github.com/ketan1406/landing-nftrove",
         page_link: "https://ketan1406.github.io/landing-nftrove/",
       },
+      {
+        name: "Beats Landing Page",
+        description:
+          "A responsive page for Beats headphones featuring product highlights, specs, and purchasing options.",
+        tags: [
+          { name: "HTML", color: "text-red-500" },
+          { name: "CSS", color: "text-blue-500" },
+          { name: "JavaScript", color: "text-yellow-500" },
+        ],
+        image: "./projects/sets/landing/beats.png",
+        source_code_link: "https://github.com/ketan1406/landing-beats",
+        page_link: "https://ketan1406.github.io/landing-beats/",
+      },
     ],
   },
 ];
