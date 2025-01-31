@@ -201,6 +201,18 @@ export const sets = [
         source_code_link: "https://github.com/ketan1406/landing-velvora-ui",
         page_link: "https://ketan1406.github.io/landing-velvora-ui/",
       },
+      {
+        name: "NFTrove",
+        description:
+          "An NFT marketplace for discovering, trading, and collecting digital assets.",
+        tags: [
+          { name: "HTML", color: "text-blue-500" },
+          { name: "CSS", color: "text-purple-500" },
+        ],
+        image: "./projects/sets/landing/nftrove.png",
+        source_code_link: "https://github.com/ketan1406/landing-nftrove",
+        page_link: "https://ketan1406.github.io/landing-nftrove/",
+      },
     ],
   },
 ];
