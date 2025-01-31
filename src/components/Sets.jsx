@@ -51,7 +51,7 @@ const SetCard = ({ project }) => {
 function MobileSetCard({ project }) {
   return (
     // Added "relative" so the absolute-positioned icons have a reference
-    <div className="relative bg-tertiary p-2 rounded-2xl w-[249px] h-auto flex flex-col items-start justify-center">
+    <div className="relative bg-tertiary p-2 rounded-2xl w-[280px] h-auto flex flex-col items-start justify-center">
       {/* The icon buttons: absolute top-right */}
       <div className="absolute inset-0 flex justify-end m-2 gap-2">
         <div
@@ -81,7 +81,7 @@ function MobileSetCard({ project }) {
       <img
         src={project.image}
         alt={project.name}
-        className="w-full h-[150px] object-cover rounded-md"
+        className="w-full h-[180px] object-cover rounded-md"
       />
     </div>
   );
@@ -103,14 +103,13 @@ export function SetsMobileCarousel({ setData }) {
 
   return (
     <div className="relative w-full h-[350px] flex items-center justify-center overflow-hidden">
-      {/* Left Arrow */}
-      <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
+      {/* Left Arrow: use arrow-btn + left */}
+      <div className="arrow-btn -left-2" onClick={handlePrev}>
         <motion.img
           src="https://img.icons8.com/?size=100&id=52511&format=png&color=ffffff"
           alt="prev"
           whileTap={{ scale: 0.8 }}
-          onClick={handlePrev}
-          className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
+          className="w-full h-full object-contain cursor-pointer"
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
           draggable="false"
@@ -118,7 +117,7 @@ export function SetsMobileCarousel({ setData }) {
       </div>
 
       {/* Slides */}
-      <div className="relative w-[250px] h-[300px] flex items-center justify-center">
+      <div className="relative w-[350px] h-[250px] flex items-center justify-center">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -134,14 +133,13 @@ export function SetsMobileCarousel({ setData }) {
         </AnimatePresence>
       </div>
 
-      {/* Right Arrow */}
-      <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-12 h-12 z-10">
+      {/* Right Arrow: use arrow-btn + right */}
+      <div className="arrow-btn -right-2" onClick={handleNext}>
         <motion.img
           src="https://img.icons8.com/?size=100&id=48345&format=png&color=ffffff"
           alt="next"
           whileTap={{ scale: 0.8 }}
-          onClick={handleNext}
-          className="w-full h-full black-gradient p-2 rounded-full cursor-pointer"
+          className="w-full h-full object-contain cursor-pointer"
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
           draggable="false"
@@ -246,7 +244,7 @@ function OverlayCarousel({ setData, onClose }) {
               src="https://img.icons8.com/?size=100&id=110627&format=png&color=ffffff"
               alt="Close"
               className={`cursor-pointer ${
-                isSmallScreen ? "w-5 h-5 mr-4" : "w-6 h-6 mr-20"
+                isSmallScreen ? "close-btn w-full h-full mr-4" : "close-btn w-full h-full mr-20"
               }`}
               onClick={onClose}
               whileTap={{ scale: 0.8 }}
