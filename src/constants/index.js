@@ -214,7 +214,7 @@ export const sets = [
         page_link: "https://ketan1406.github.io/landing-nftrove/",
       },
       {
-        name: "Beats Landing Page",
+        name: "Beats",
         description:
           "A responsive page for Beats headphones featuring product highlights, specs, and purchasing options.",
         tags: [
