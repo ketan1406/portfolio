@@ -102,18 +102,18 @@ export const projects = [
       "https://ketan1406-ingredients-analyzer-app-7gwwcn.streamlit.app/",
   },
   {
-    name: "Rabbit Game",
+    name: "Image Converter",
     description:
-      "Rabbit Game is a Python-based grid adventure where you control a rabbit, collect carrots, and navigate obstacles using the curses library for a dynamic terminal UI.",
+      "A Python-based tool to convert images into different sketch styles including pencil sketch, colored sketch, edge detection, and cartoon effect.",
     tags: [
       { name: "Python", color: "blue-text-gradient" },
-      { name: "Game Development", color: "green-text-gradient" },
-      { name: "Algorithms", color: "pink-text-gradient" },
-      { name: "curses", color: "orange-text-gradient" },
+      { name: "OpenCV", color: "orange-text-gradient" },
+      { name: "Matplotlib", color: "violet-text-gradient" },
+      { name: "Tkinter", color: "pink-text-gradient" },
     ],
-    image: "./projects/rabbit-game.png",
-    source_code_link: "https://github.com/ketan1406/Rabbit-Game",
-    page_link: "https://github.com/ketan1406/Rabbit-Game",
+    image: "./projects/img-converter.png",
+    source_code_link: "https://github.com/ketan1406/image-sketch-converter",
+    page_link: "https://github.com/ketan1406/image-sketch-converter",
   },
   {
     name: "Customer Care Agent",
@@ -129,6 +129,20 @@ export const projects = [
     image: "./projects/customer-care-agent.png",
     source_code_link: "https://github.com/ketan1406/customer-care-agent",
     page_link: "https://customer-agent-ketan1406.streamlit.app/",
+  },
+  {
+    name: "Rabbit Game",
+    description:
+      "Rabbit Game is a Python-based grid adventure where you control a rabbit, collect carrots, and navigate obstacles using the curses library for a dynamic terminal UI.",
+    tags: [
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "Game Development", color: "green-text-gradient" },
+      { name: "Algorithms", color: "pink-text-gradient" },
+      { name: "curses", color: "orange-text-gradient" },
+    ],
+    image: "./projects/rabbit-game.png",
+    source_code_link: "https://github.com/ketan1406/Rabbit-Game",
+    page_link: "https://github.com/ketan1406/Rabbit-Game",
   },
   {
     name: "PGAGI Analytics Dashboard",
