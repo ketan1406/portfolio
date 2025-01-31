@@ -161,6 +161,23 @@ const SetsCarousel = ({ setData, hideTitle = false }) => {
     setActive((prev) => (prev >= count - 1 ? 0 : prev + 1));
   };
 
+  const getCircularOffset = (i, active, length) => {
+    // raw difference
+    let diff = i - active;
+  
+    // We want to shift “diff” so it stays within [-2..2] for length=4 (or more generally around half).
+    // If it's more than half the array length, shift it negatively.
+    // If it's less than -half, shift it positively.
+    const half = Math.floor(length / 2);
+  
+    if (diff > half) {
+      diff -= length;
+    } else if (diff < -half) {
+      diff += length;
+    }
+  
+    return diff;
+  }
   return (
     <div style={{ textAlign: "center" }}>
       {/* Only show if hideTitle is false */}
@@ -184,19 +201,22 @@ const SetsCarousel = ({ setData, hideTitle = false }) => {
         </div>
 
         {setData.projects.map((project, i) => {
-          const offset = active - i;
+          // get a “wrapped” offset
+          const rawOffset = getCircularOffset(i, active, setData.projects.length);
+          const offsetValue = rawOffset / 3;
+
           return (
             <div
               key={project.name + i}
               className="card-container"
               style={{
                 "--active": i === active ? 1 : 0,
-                "--offset": offset / 3,
-                "--direction": Math.sign(offset),
-                "--abs-offset": Math.abs(offset) / 3,
-                pointerEvents: active === i ? "auto" : "none",
-                opacity: Math.abs(offset) >= 2 ? "0" : "1",
-                display: Math.abs(offset) > 2 ? "none" : "block",
+                "--offset": offsetValue,
+                "--direction": Math.sign(rawOffset),
+                "--abs-offset": Math.abs(offsetValue),
+                pointerEvents: i === active ? "auto" : "none",
+                opacity: Math.abs(rawOffset) >= 2 ? "0" : "1",
+                display: Math.abs(rawOffset) > 2 ? "none" : "block",
               }}
             >
               <SetCard project={project} />
