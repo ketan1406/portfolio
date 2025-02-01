@@ -102,18 +102,19 @@ export const projects = [
       "https://ketan1406-ingredients-analyzer-app-7gwwcn.streamlit.app/",
   },
   {
-    name: "Image Converter",
+    name: "Image Sketch Converter",
     description:
-      "A Python-based tool to convert images into different sketch styles including pencil sketch, colored sketch, edge detection, and cartoon effect.",
+      "A Python-based web app that converts images into various sketch styles using Streamlit and OpenCV. Enjoy real-time previews with an emoji-enhanced interface!",
     tags: [
       { name: "Python", color: "blue-text-gradient" },
       { name: "OpenCV", color: "orange-text-gradient" },
-      { name: "Matplotlib", color: "violet-text-gradient" },
-      { name: "Tkinter", color: "pink-text-gradient" },
+      { name: "Streamlit", color: "green-text-gradient" },
+      { name: "NumPy", color: "violet-text-gradient" },
+      { name: "Pillow", color: "pink-text-gradient" },
     ],
     image: "./projects/img-converter.png",
     source_code_link: "https://github.com/ketan1406/image-sketch-converter",
-    page_link: "https://github.com/ketan1406/image-sketch-converter",
+    page_link: "https://ketan1406-image-sketch-converter.streamlit.app/",
   },
   {
     name: "Customer Care Agent",
