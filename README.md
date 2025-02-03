@@ -1,3 +1,3 @@
-# Portfolio Website
+# Portfolio
 
 ## Libraries used 
