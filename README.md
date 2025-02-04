@@ -1,6 +1,6 @@
 # Portfolio Website 🎨🚀🌟
 
-![Live Demo](https://ketan-saini-portfolio.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-React-blue?style=for-the-badge&logo=react)](https://ketan-saini-portfolio.vercel.app/)
 
 ## 🚀 About The Project ✨💡🔥
 This is a **3D interactive portfolio** showcasing my skills, projects, and experience. It is built using **React**, **Three.js**, **Tailwind CSS**, and **Framer Motion** to deliver a visually appealing and responsive user experience. 🎭🖥️🌍
