@@ -4,21 +4,22 @@ import { sets } from "../constants";
 import ClickOutside from "./ClickOutside";    // your existing click-outside component
 import { motion, AnimatePresence } from "framer-motion";
 import useMediaQuery from "../hooks/useMediaQuery";
+import LazyImage from "./LazyImage";
 
 const SetCard = ({ project }) => {
   return (
     <div className="set-card">
       <h2 className="set-card-title">{project.name}</h2>
-      <img
-        src={project.image}
-        alt={project.name}
-        style={{
-          width: "auto",
-          maxHeight: "70%",
-          margin: "0.5rem auto",
-          borderRadius: "8px",
-        }}
-      />
+      <LazyImage
+          src={project.image}
+          alt={project.name}
+          style={{
+            width: "auto",
+            maxHeight: "70%",
+            margin: "0.5rem auto",
+            borderRadius: "8px",
+          }}
+        />
       <div className="hover-info">
         <p>{project.description}</p>
         <div className="flex gap-4">
@@ -51,7 +52,7 @@ const SetCard = ({ project }) => {
 function MobileSetCard({ project }) {
   return (
     // Added "relative" so the absolute-positioned icons have a reference
-    <div className="relative bg-tertiary p-2 rounded-2xl w-[280px] h-auto flex flex-col items-start justify-center">
+    <div className="relative bg-tertiary p-2 rounded-2xl w-[280px] h-[200px] flex flex-col items-start justify-center">
       {/* The icon buttons: absolute top-right */}
       <div className="absolute inset-0 flex justify-end m-2 gap-2">
         <div
@@ -78,11 +79,11 @@ function MobileSetCard({ project }) {
 
       {/* Existing title and image */}
       <h2 className="text-white font-bold text-lg mb-1">{project.name}</h2>
-      <img
-        src={project.image}
-        alt={project.name}
-        className="w-full h-[180px] object-cover rounded-md"
-      />
+      <LazyImage
+          src={project.image}
+          alt={project.name}
+          className="w-full h-[180px] object-cover rounded-md"
+        />
     </div>
   );
 }

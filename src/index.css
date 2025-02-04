@@ -145,6 +145,15 @@
   z-index: 9999; /* Adjust the z-index to ensure it's displayed above other elements if necessary */
 }
 
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes spin {
   0%,
   100% {

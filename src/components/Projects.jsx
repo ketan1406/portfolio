@@ -10,6 +10,7 @@ import SetsSection from "./Sets";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import chunkArray from "../utils/chunkArray";
+import LazyImage from "./LazyImage";
 
 // A reusable card
 const ProjectCard = ({
@@ -25,10 +26,10 @@ const ProjectCard = ({
     <>
       {/* Image Container */}
       <div className="relative w-full xs:h-[190px] sm:h-[250px]">
-        <img
+        <LazyImage
           src={image}
           alt={name}
-          className="w-full h-full object-cover rounded-2xl"
+          className="w-full h-[160px] object-cover rounded-md"
         />
         {/* Icon buttons top-right */}
         <div className="absolute inset-0 flex justify-end m-3 gap-2">
