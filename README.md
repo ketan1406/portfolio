@@ -93,6 +93,9 @@ portfolio/
 - **Dark/Light Mode**: Toggle between themes dynamically.
 - **More Animations**: Enhanced smooth transitions. ✨🎥🖌️
 
+## 🔗 Acknowledgements 🏆🙏✨
+This project is inspired by [Adrian Hajdin's 3D Developer Portfolio](https://github.com/adrianhajdin/project_3D_developer_portfolio/tree/main). A huge thanks to him for sharing his work and making this possible!
+
 ## 📬 Contact 📩📞🌎
 
 Feel free to connect with me:
