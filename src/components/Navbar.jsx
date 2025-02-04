@@ -54,7 +54,14 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={"../../assets/me.png"} alt="logo" className="my-image-class w-9 h-9 object-contain rounded-full"  onContextMenu={(e) => e.preventDefault()}  onDragStart={(e) => e.preventDefault()}  draggable="false"/>
+          <img
+            src={"../../assets/me.png"}
+            alt="logo"
+            className="logo logo-spin object-contain rounded-full"
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()}
+            draggable="false"
+          />
           <p className="text-white text-[20px] font-bold cursor-pointer flex">
             KETAN&nbsp;
             <span className="sm:block hidden">SAINI</span>
