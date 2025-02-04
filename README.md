@@ -94,17 +94,20 @@ portfolio/
 - **More Animations**: Enhanced smooth transitions. ✨🎥🖌️
 
 ## 🔗 Acknowledgements 🏆🙏✨
+
 This project is inspired by [Adrian Hajdin's 3D Developer Portfolio](https://github.com/adrianhajdin/project_3D_developer_portfolio/tree/main). A huge thanks to him for sharing his work and making this possible!
+
+## 🛡️ License 📜⚖️
+
+This project is licensed under the MIT License - feel free to modify, distribute, and use it as you see fit! 🛠️🚀
 
 ## 📬 Contact 📩📞🌎
 
 Feel free to connect with me:
 
-- **LinkedIn**: [Ketan Saini](https://www.linkedin.com/in/ketan-saini-245861211/)
-- **GitHub**: [ketan1406](https://github.com/ketan1406)
-- **Email**: [sainiketan99@gmail.com](mailto:sainiketan99@gmail.com)
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ketan-saini-245861211/)
+- [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ketan1406)
+- [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sainiketan99@gmail.com)
+- [![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/ketekorg)
 
 ---
-
-© 2025 Ketan Saini. All rights reserved. 🔐📝✅
-
