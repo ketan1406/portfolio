@@ -48,6 +48,7 @@ portfolio/
 │   ├── styles.js
 │   ├── utils/
 │   ├── index.css
+│   ├── App.css
 │   ├── App.jsx
 │   ├── main.jsx
 ```
