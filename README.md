@@ -32,6 +32,11 @@ portfolio/
 │   ├── projects/
 ├── src/
 │   ├── components/
+│   │   ├── canvas/
+│   │   │   ├── Computers.jsx
+│   │   │   ├── Earth.jsx
+│   │   │   ├── Stars.jsx
+│   │   │   ├── index.js
 │   │   ├── About.jsx
 │   │   ├── Contact.jsx
 │   │   ├── Footer.jsx
