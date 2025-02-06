@@ -45,7 +45,6 @@ portfolio/
 │   │   ├── Navbar.jsx
 │   │   ├── Projects.jsx
 │   │   ├── Sets.jsx
-│   │   ├── canvas/
 │   │   ├── index.js
 │   ├── constants/
 │   ├── hoc/
