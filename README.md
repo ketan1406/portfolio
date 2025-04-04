@@ -32,6 +32,11 @@ portfolio/
 │   ├── projects/
 ├── src/
 │   ├── components/
+│   │   ├── canvas/
+│   │   │   ├── Computers.jsx
+│   │   │   ├── Earth.jsx
+│   │   │   ├── Stars.jsx
+│   │   │   ├── index.js
 │   │   ├── About.jsx
 │   │   ├── Contact.jsx
 │   │   ├── Footer.jsx
@@ -40,7 +45,6 @@ portfolio/
 │   │   ├── Navbar.jsx
 │   │   ├── Projects.jsx
 │   │   ├── Sets.jsx
-│   │   ├── canvas/
 │   │   ├── index.js
 │   ├── constants/
 │   ├── hoc/
@@ -48,6 +52,7 @@ portfolio/
 │   ├── styles.js
 │   ├── utils/
 │   ├── index.css
+│   ├── App.css
 │   ├── App.jsx
 │   ├── main.jsx
 ```
