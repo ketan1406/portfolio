@@ -57,7 +57,7 @@ const Navbar = () => {
           <img
             src={"../../assets/me.png"}
             alt="logo"
-            className="logo logo-spin object-contain rounded-full"
+            className="logo object-contain rounded-full"
             onContextMenu={(e) => e.preventDefault()}
             onDragStart={(e) => e.preventDefault()}
             draggable="false"
