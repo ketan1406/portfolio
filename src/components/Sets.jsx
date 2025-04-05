@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import ReactDOM from "react-dom"; 
+import ReactDOM from "react-dom";
 import { sets } from "../constants";
 import ClickOutside from "./ClickOutside";    // your existing click-outside component
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,41 +11,45 @@ const SetCard = ({ project }) => {
     <div className="set-card">
       <h2 className="set-card-title">{project.name}</h2>
       <LazyImage
-          src={project.image}
-          alt={project.name}
-          style={{
-            width: "auto",
-            maxHeight: "70%",
-            margin: "0.5rem auto",
-            borderRadius: "8px",
-          }}
-        />
+        src={project.image}
+        alt={project.name}
+        style={{
+          width: "auto",
+          maxHeight: "70%",
+          margin: "0.5rem auto",
+          borderRadius: "8px",
+        }}
+      />
       <div className="hover-info">
         <p>{project.description}</p>
         <div className="flex gap-4">
-          <div
-            onClick={() => window.open(project.source_code_link, "_blank")}
-            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+          <motion.div
+            whileHover={{ scale: 1.2, boxShadow: "0 0 10px 4px rgba(255, 255, 255, 0.8)" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.open(source_code_link, "_blank")}
+            className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
           >
             <img
               src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
               alt="source code"
               className="my-image-class w-6 h-6 object-contain"
             />
-          </div>
-          <div
-            onClick={() => window.open(project.page_link, "_blank")}
-            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.2, boxShadow: "0 0 10px 4px rgba(255, 255, 255, 0.8)" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.open(source_code_link, "_blank")}
+            className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
           >
             <img
               src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
               alt="live site"
               className="my-image-class w-6 h-6  object-contain"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
@@ -80,10 +84,10 @@ function MobileSetCard({ project }) {
       {/* Existing title and image */}
       <h2 className="text-white font-bold text-lg mb-1">{project.name}</h2>
       <LazyImage
-          src={project.image}
-          alt={project.name}
-          className="w-full h-[180px] object-cover rounded-md"
-        />
+        src={project.image}
+        alt={project.name}
+        className="w-full h-[180px] object-cover rounded-md"
+      />
     </div>
   );
 }
@@ -165,18 +169,18 @@ const SetsCarousel = ({ setData, hideTitle = false }) => {
   const getCircularOffset = (i, active, length) => {
     // raw difference
     let diff = i - active;
-  
+
     // We want to shift “diff” so it stays within [-2..2] for length=4 (or more generally around half).
     // If it's more than half the array length, shift it negatively.
     // If it's less than -half, shift it positively.
     const half = Math.floor(length / 2);
-  
+
     if (diff > half) {
       diff -= length;
     } else if (diff < -half) {
       diff += length;
     }
-  
+
     return diff;
   }
   return (
@@ -255,18 +259,16 @@ function OverlayCarousel({ setData, onClose }) {
           {/* Make the title & X a bit smaller for mobile */}
           <div className="flex items-center justify-between mb-2">
             <h2
-              className={`text-white font-bold ml-4 ${
-                isSmallScreen ? "text-lg" : "text-xl ml-20"
-              }`}
+              className={`text-white font-bold ml-4 ${isSmallScreen ? "text-lg" : "text-xl ml-20"
+                }`}
             >
               {setData.title}
             </h2>
             <motion.img
               src="https://img.icons8.com/?size=100&id=110627&format=png&color=ffffff"
               alt="Close"
-              className={`cursor-pointer ${
-                isSmallScreen ? "close-btn w-full h-full mr-4" : "close-btn w-full h-full mr-20"
-              }`}
+              className={`cursor-pointer ${isSmallScreen ? "close-btn w-full h-full mr-4" : "close-btn w-full h-full mr-20"
+                }`}
               onClick={onClose}
               whileTap={{ scale: 0.8 }}
               draggable="false"

@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tilt } from "react-tilt";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
@@ -12,7 +11,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import chunkArray from "../utils/chunkArray";
 import LazyImage from "./LazyImage";
 
-// A reusable card
+// A reusable card that expands on hover instead of tilting
 const ProjectCard = ({
   name,
   description,
@@ -20,7 +19,6 @@ const ProjectCard = ({
   image,
   source_code_link,
   page_link,
-  tiltEnabled = true,
 }) => {
   const cardContent = (
     <>
@@ -33,35 +31,38 @@ const ProjectCard = ({
         />
         {/* Icon buttons top-right */}
         <div className="absolute inset-0 flex justify-end m-3 gap-2">
-          <div
+          <motion.div
+            whileHover={{ scale: 1.2, boxShadow: "0 0 10px 4px rgba(255, 255, 255, 0.8)" }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => window.open(source_code_link, "_blank")}
             className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
           >
             <img
               src="https://img.icons8.com/?size=100&id=106567&format=png&color=ffffff"
               alt="source code"
-              className="my-image-class w-4 h-4 sm:w-5 sm:h-5 object-contain"
+              className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
             />
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.2, boxShadow: "0 0 10px 4px rgba(255, 255, 255, 0.8)" }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => window.open(page_link, "_blank")}
             className="black-gradient w-6 h-6 sm:w-8 sm:h-8 rounded-full flex justify-center items-center cursor-pointer"
           >
             <img
               src="https://img.icons8.com/?size=100&id=83168&format=png&color=ffffff"
               alt="live site"
-              className="my-image-class w-4 h-4 sm:w-5 sm:h-5 object-contain"
+              className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Title / Description */}
+      {/* Title and Description */}
       <div className="mt-4">
         <h3 className="text-white font-bold xs:text-[15px] sm:text-[20px]">
           {name}
         </h3>
-        {/* Hide description below sm */}
         <p className="hidden sm:block mt-2 text-secondary sm:text-[14px]">
           {description}
         </p>
@@ -78,32 +79,20 @@ const ProjectCard = ({
     </>
   );
 
-  // If tilt is disabled, normal card
-  if (!tiltEnabled) {
-    return (
-      <div className="bg-tertiary p-2 sm:p-4 rounded-2xl xs:w-[249px] sm:w-[360px]">
-        {cardContent}
-      </div>
-    );
-  }
-
-  // Otherwise, tilt
   return (
-    <Tilt
-      options={{ max: 45, scale: 1, speed: 450 }}
-      className="bg-tertiary p-2 sm:p-4 rounded-2xl xs:w-[249px] sm:w-[360px] xs:h-[310px] sm:h-auto"
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="bg-tertiary p-2 sm:p-4 rounded-2xl xs:w-[249px] sm:w-[360px]"
     >
       {cardContent}
-    </Tilt>
+    </motion.div>
   );
 };
 
 function ProjectsCarousel() {
-  // Already have:
   const isLg = useMediaQuery("(min-width: 1024px)");
   const isSm = useMediaQuery("(min-width: 640px)");
-
-  // Add for XS:
   const isXs = useMediaQuery("(max-width: 639px)");
 
   let itemsPerSlide = 1;
@@ -116,8 +105,6 @@ function ProjectsCarousel() {
   }
 
   const chunkedProjects = chunkArray(projects, itemsPerSlide);
-
-  // chunk logic...
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -136,21 +123,15 @@ function ProjectsCarousel() {
     }
   };
 
-  // *** This is the part that must exist before you map over gridClasses ***
   let gridClasses = "flex justify-center items-center";
   if (itemsPerSlide === 6) {
     gridClasses = "grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
   } else if (itemsPerSlide === 4) {
     gridClasses = "grid grid-cols-2 grid-rows-2 gap-x-2 gap-y-10 place-items-center";
-  } 
-  // for 1, we keep the fallback
+  }
 
   return (
     <div className="relative w-full max-w-7xl mx-auto z-10">
-      {/* 
-        1) If isXs => place arrows on left/right & hide dots
-        2) Else => top bar with arrows + dots
-      */}
       {isXs ? (
         <>
           {/* Arrows on left/right sides for XS */}
@@ -231,11 +212,11 @@ function ProjectsCarousel() {
         </div>
       )}
 
-      {/* The slides container */}
+      {/* Slides Container */}
       <div
         className={
           isXs
-            ? "relative mt-10 overflow-hidden min-h-[450px]" 
+            ? "relative mt-10 overflow-hidden min-h-[450px]"
             : "relative top-5 mt-10 overflow-hidden min-h-[450px] sm:min-h-[1100px]"
         }
       >
@@ -285,15 +266,14 @@ const Projects = () => {
         viewport={{ once: true }}
       >
         <p className="mt-3 text-secondary text-[16px] max-w-3xl leading-[30px] text-left">
-        These projects highlight my expertise and technical skills, showcasing my
-        work through concise descriptions and repository links.
+          These projects highlight my expertise and technical skills, showcasing my work through concise descriptions and repository links.
         </p>
       </motion.div>
 
       {/* Carousel */}
       <ProjectsCarousel />
 
-      {/* Sets section */}
+      {/* Sets Section */}
       <SetsSection />
     </>
   );
