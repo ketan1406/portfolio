@@ -26,7 +26,7 @@ const Navbar = () => {
       {navLinks.map((link) => (
         <li
           key={link.id}
-          className={`${active === link.title ? "text-white" : isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[15px] font-medium cursor-pointer`}
+          className={`navlink ${active === link.title ? "text-white" : isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[15px] font-medium cursor-pointer`}
           onClick={() => {
             setActive(link.title);
             if (isSecondary) {
@@ -37,7 +37,7 @@ const Navbar = () => {
           <a href={`#${link.id}`}>{link.title}</a>
         </li>
       ))}
-      <li className={`${isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[15px] font-medium cursor-pointer`}>
+      <li className={`navlink ${isSecondary ? "text-secondary" : "text-white"} hover:text-white text-[15px] font-medium cursor-pointer`}>
         <button onClick={toggleResume}>Resume</button>
       </li>
     </ul>
@@ -72,7 +72,7 @@ const Navbar = () => {
           <motion.img
             src={toggle ? "https://img.icons8.com/?size=100&id=9fyHXdGhDX2Z&format=png&color=000000" : "https://img.icons8.com/?size=100&id=44024&format=png&color=000000"}
             alt="menu"
-            className="my-image-class w-8 h-8 object-contain cursor-pointer"
+            className="navlink my-image-class w-8 h-8 object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
             whileTap={{ scale: 0.8 }}
             ref={menuRef}
