@@ -11,7 +11,7 @@ const Navbar = () => {
   const menuRef = useRef(null);
 
   const toggleResume = () => {
-    const resumeUrl = "https://drive.google.com/file/d/12OM_be0GFeTR-lkdYgqPUnqBX1SfJMF-/view?usp=sharing";
+    const resumeUrl = "https://drive.google.com/file/d/1077bAdR0T3PCkz5yIlckaoJHV-Afrvab/view?usp=sharing";
     window.open(resumeUrl);
   };
 
